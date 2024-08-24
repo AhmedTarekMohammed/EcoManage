@@ -11,18 +11,15 @@ namespace Eco.Data.EF
 {
     public class DBContext : DbContext
     {
-        // Constructor for DBContext with options
-        public DBContext(DbContextOptions<DBContext> options) : base(options)
-        {
-        }
+       
 
         // OnConfiguring is used to configure the database to be used for this context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //string conString = @"Server=./SQLEXPRESS;Database=EcoManage;Encrypt=false;Trusted_Connection=True;";
-                optionsBuilder.UseSqlServer("Server=localhost;Database=EcoManageDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+                string conString = @"Server=./MSSQLSERVER;Database=EcoManageDB;Encrypt=false;Trusted_Connection=True;";
+                optionsBuilder.UseSqlServer(conString);
             }
         }
 
@@ -30,6 +27,10 @@ namespace Eco.Data.EF
         public DbSet<Users> Users { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<SystemRecords> SystemRecords { get; set; }
+        public DbSet<SalaryRate> SalaryRate { get; set; }
+        public DbSet<Employees> Employees { get; set; }
+        public DbSet<BookThanks> BookThanks { get; set; }
+        public DbSet<EmployeesRecords> EmployeesRecords { get; set; }
     }
 
 

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoManage", "EcoManage\EcoManage.csproj", "{662D5565-8CA6-4912-90E8-83ADC1859323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcoManage", "EcoManage\EcoManage.csproj", "{662D5565-8CA6-4912-90E8-83ADC1859323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eco.Core", "Eco.Core\Eco.Core.csproj", "{15B7579C-5A0A-4077-8E9C-5FEFFE69EB30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eco.Core", "Eco.Core\Eco.Core.csproj", "{15B7579C-5A0A-4077-8E9C-5FEFFE69EB30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eco.Data", "Eco.Data\Eco.Data.csproj", "{8C4A5D6A-ABF7-48F9-9D02-F13A8F051C0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eco.Data", "Eco.Data\Eco.Data.csproj", "{8C4A5D6A-ABF7-48F9-9D02-F13A8F051C0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

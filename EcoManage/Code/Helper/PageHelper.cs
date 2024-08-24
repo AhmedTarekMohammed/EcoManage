@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EcoManage.Code.Helper
 {
-    internal class PageHelper
+    public class PageHelper
     {
         private readonly Main main;
 
