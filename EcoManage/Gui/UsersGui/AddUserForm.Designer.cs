@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            comboBoxSecondaryUser = new ComboBox();
-            checkBox1 = new CheckBox();
+            comboBoxRole = new ComboBox();
+            label21 = new Label();
             textBoxPassword = new TextBox();
             label5 = new Label();
             label6 = new Label();
@@ -40,6 +40,8 @@
             textBoxFullName = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            comboBoxSecondaryUser = new ComboBox();
+            chkSecandryUser = new CheckBox();
             groupBox2 = new GroupBox();
             buttonSave = new Button();
             textBoxAddress = new TextBox();
@@ -49,28 +51,28 @@
             textBoxPhone = new TextBox();
             label14 = new Label();
             groupBox3 = new GroupBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label21 = new Label();
-            comboBoxRole = new ComboBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox10 = new CheckBox();
-            checkBox11 = new CheckBox();
-            checkBox12 = new CheckBox();
-            checkBox13 = new CheckBox();
-            checkBox14 = new CheckBox();
-            checkBox15 = new CheckBox();
-            checkBox16 = new CheckBox();
+            flowLayoutPanel = new FlowLayoutPanel();
+            checkBoxAdd = new CheckBox();
+            checkBoxDelete = new CheckBox();
+            checkBoxEdit = new CheckBox();
+            checkBoxExport = new CheckBox();
+            checkBoxPrint = new CheckBox();
+            checkBoxSearch = new CheckBox();
+            checkBoxSearchHP = new CheckBox();
+            checkBoxHome = new CheckBox();
+            checkBoxSalary = new CheckBox();
+            checkBoxEmployees = new CheckBox();
+            checkBoxUsers = new CheckBox();
+            checkBoxReport = new CheckBox();
+            checkBoxSetting = new CheckBox();
+            checkBoxAbout = new CheckBox();
+            checkBoxHelp = new CheckBox();
+            checkBoxRetirees = new CheckBox();
+            checkBoxRecords = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -94,25 +96,24 @@
             groupBox1.Text = "Login Info ";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // comboBoxSecondaryUser
+            // comboBoxRole
             // 
-            comboBoxSecondaryUser.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSecondaryUser.Enabled = false;
-            comboBoxSecondaryUser.FormattingEnabled = true;
-            comboBoxSecondaryUser.Location = new Point(6, 71);
-            comboBoxSecondaryUser.Name = "comboBoxSecondaryUser";
-            comboBoxSecondaryUser.Size = new Size(250, 26);
-            comboBoxSecondaryUser.TabIndex = 6;
+            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRole.FormattingEnabled = true;
+            comboBoxRole.Location = new Point(6, 343);
+            comboBoxRole.Name = "comboBoxRole";
+            comboBoxRole.Size = new Size(250, 26);
+            comboBoxRole.TabIndex = 4;
+            comboBoxRole.SelectedIndexChanged += comboBoxRole_SelectedIndexChanged;
             // 
-            // checkBox1
+            // label21
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(16, 37);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(154, 22);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Is Secondary User";
-            checkBox1.UseVisualStyleBackColor = true;
+            label21.AutoSize = true;
+            label21.Location = new Point(6, 307);
+            label21.Name = "label21";
+            label21.Size = new Size(154, 18);
+            label21.TabIndex = 9;
+            label21.Text = "General Permissions";
             // 
             // textBoxPassword
             // 
@@ -192,10 +193,31 @@
             label1.TabIndex = 0;
             label1.Text = "Full Name :";
             // 
+            // comboBoxSecondaryUser
+            // 
+            comboBoxSecondaryUser.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSecondaryUser.Enabled = false;
+            comboBoxSecondaryUser.FormattingEnabled = true;
+            comboBoxSecondaryUser.Location = new Point(6, 71);
+            comboBoxSecondaryUser.Name = "comboBoxSecondaryUser";
+            comboBoxSecondaryUser.Size = new Size(250, 26);
+            comboBoxSecondaryUser.TabIndex = 6;
+            // 
+            // chkSecandryUser
+            // 
+            chkSecandryUser.AutoSize = true;
+            chkSecandryUser.Location = new Point(16, 37);
+            chkSecandryUser.Name = "chkSecandryUser";
+            chkSecandryUser.Size = new Size(154, 22);
+            chkSecandryUser.TabIndex = 5;
+            chkSecandryUser.Text = "Is Secondary User";
+            chkSecandryUser.UseVisualStyleBackColor = true;
+            chkSecandryUser.CheckedChanged += chkSecandryUser_CheckedChanged;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(comboBoxSecondaryUser);
-            groupBox2.Controls.Add(checkBox1);
+            groupBox2.Controls.Add(chkSecandryUser);
             groupBox2.Controls.Add(buttonSave);
             groupBox2.Controls.Add(textBoxAddress);
             groupBox2.Controls.Add(label10);
@@ -272,244 +294,250 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(flowLayoutPanel1);
+            groupBox3.Controls.Add(flowLayoutPanel);
             groupBox3.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.Red;
             groupBox3.Location = new Point(12, 398);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(553, 128);
+            groupBox3.Size = new Size(558, 157);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Permissions";
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel
             // 
-            flowLayoutPanel1.Controls.Add(checkBox2);
-            flowLayoutPanel1.Controls.Add(checkBox3);
-            flowLayoutPanel1.Controls.Add(checkBox4);
-            flowLayoutPanel1.Controls.Add(checkBox5);
-            flowLayoutPanel1.Controls.Add(checkBox6);
-            flowLayoutPanel1.Controls.Add(checkBox7);
-            flowLayoutPanel1.Controls.Add(checkBox8);
-            flowLayoutPanel1.Controls.Add(checkBox9);
-            flowLayoutPanel1.Controls.Add(checkBox10);
-            flowLayoutPanel1.Controls.Add(checkBox11);
-            flowLayoutPanel1.Controls.Add(checkBox12);
-            flowLayoutPanel1.Controls.Add(checkBox13);
-            flowLayoutPanel1.Controls.Add(checkBox14);
-            flowLayoutPanel1.Controls.Add(checkBox15);
-            flowLayoutPanel1.Controls.Add(checkBox16);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 26);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(547, 99);
-            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel.Controls.Add(checkBoxAdd);
+            flowLayoutPanel.Controls.Add(checkBoxDelete);
+            flowLayoutPanel.Controls.Add(checkBoxEdit);
+            flowLayoutPanel.Controls.Add(checkBoxExport);
+            flowLayoutPanel.Controls.Add(checkBoxPrint);
+            flowLayoutPanel.Controls.Add(checkBoxSearch);
+            flowLayoutPanel.Controls.Add(checkBoxSearchHP);
+            flowLayoutPanel.Controls.Add(checkBoxHome);
+            flowLayoutPanel.Controls.Add(checkBoxSalary);
+            flowLayoutPanel.Controls.Add(checkBoxEmployees);
+            flowLayoutPanel.Controls.Add(checkBoxUsers);
+            flowLayoutPanel.Controls.Add(checkBoxReport);
+            flowLayoutPanel.Controls.Add(checkBoxSetting);
+            flowLayoutPanel.Controls.Add(checkBoxAbout);
+            flowLayoutPanel.Controls.Add(checkBoxHelp);
+            flowLayoutPanel.Controls.Add(checkBoxRetirees);
+            flowLayoutPanel.Controls.Add(checkBoxRecords);
+            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.Location = new Point(3, 26);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(552, 128);
+            flowLayoutPanel.TabIndex = 0;
             // 
-            // label21
+            // checkBoxAdd
             // 
-            label21.AutoSize = true;
-            label21.Location = new Point(6, 307);
-            label21.Name = "label21";
-            label21.Size = new Size(154, 18);
-            label21.TabIndex = 9;
-            label21.Text = "General Permissions";
+            checkBoxAdd.AutoSize = true;
+            checkBoxAdd.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxAdd.Location = new Point(3, 3);
+            checkBoxAdd.Name = "checkBoxAdd";
+            checkBoxAdd.Padding = new Padding(3);
+            checkBoxAdd.Size = new Size(57, 26);
+            checkBoxAdd.TabIndex = 0;
+            checkBoxAdd.Text = "Add";
+            checkBoxAdd.UseVisualStyleBackColor = true;
             // 
-            // comboBoxRole
+            // checkBoxDelete
             // 
-            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxRole.Enabled = false;
-            comboBoxRole.FormattingEnabled = true;
-            comboBoxRole.Items.AddRange(new object[] { "Manager", "User", "ReadOnlyUser" });
-            comboBoxRole.Location = new Point(6, 343);
-            comboBoxRole.Name = "comboBoxRole";
-            comboBoxRole.Size = new Size(250, 26);
-            comboBoxRole.TabIndex = 4;
+            checkBoxDelete.AutoSize = true;
+            checkBoxDelete.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxDelete.Location = new Point(66, 3);
+            checkBoxDelete.Name = "checkBoxDelete";
+            checkBoxDelete.Padding = new Padding(3);
+            checkBoxDelete.Size = new Size(73, 26);
+            checkBoxDelete.TabIndex = 1;
+            checkBoxDelete.Text = "Delete";
+            checkBoxDelete.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxEdit
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox2.Location = new Point(3, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Padding = new Padding(3);
-            checkBox2.Size = new Size(57, 26);
-            checkBox2.TabIndex = 0;
-            checkBox2.Text = "Add";
-            checkBox2.UseVisualStyleBackColor = true;
+            checkBoxEdit.AutoSize = true;
+            checkBoxEdit.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxEdit.Location = new Point(145, 3);
+            checkBoxEdit.Name = "checkBoxEdit";
+            checkBoxEdit.Padding = new Padding(3);
+            checkBoxEdit.Size = new Size(56, 26);
+            checkBoxEdit.TabIndex = 2;
+            checkBoxEdit.Text = "Edit";
+            checkBoxEdit.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxExport
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox3.Location = new Point(66, 3);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Padding = new Padding(3);
-            checkBox3.Size = new Size(73, 26);
-            checkBox3.TabIndex = 1;
-            checkBox3.Text = "Delete";
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBoxExport.AutoSize = true;
+            checkBoxExport.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxExport.Location = new Point(207, 3);
+            checkBoxExport.Name = "checkBoxExport";
+            checkBoxExport.Padding = new Padding(3);
+            checkBoxExport.Size = new Size(73, 26);
+            checkBoxExport.TabIndex = 3;
+            checkBoxExport.Text = "Export";
+            checkBoxExport.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxPrint
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox4.Location = new Point(145, 3);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Padding = new Padding(3);
-            checkBox4.Size = new Size(56, 26);
-            checkBox4.TabIndex = 2;
-            checkBox4.Text = "Edit";
-            checkBox4.UseVisualStyleBackColor = true;
+            checkBoxPrint.AutoSize = true;
+            checkBoxPrint.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxPrint.Location = new Point(286, 3);
+            checkBoxPrint.Name = "checkBoxPrint";
+            checkBoxPrint.Padding = new Padding(3);
+            checkBoxPrint.Size = new Size(62, 26);
+            checkBoxPrint.TabIndex = 4;
+            checkBoxPrint.Text = "Print";
+            checkBoxPrint.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBoxSearch
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox5.Location = new Point(207, 3);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Padding = new Padding(3);
-            checkBox5.Size = new Size(73, 26);
-            checkBox5.TabIndex = 3;
-            checkBox5.Text = "Export";
-            checkBox5.UseVisualStyleBackColor = true;
+            checkBoxSearch.AutoSize = true;
+            checkBoxSearch.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxSearch.Location = new Point(354, 3);
+            checkBoxSearch.Name = "checkBoxSearch";
+            checkBoxSearch.Padding = new Padding(3);
+            checkBoxSearch.Size = new Size(77, 26);
+            checkBoxSearch.TabIndex = 5;
+            checkBoxSearch.Text = "Search";
+            checkBoxSearch.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // checkBoxSearchHP
             // 
-            checkBox6.AutoSize = true;
-            checkBox6.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox6.Location = new Point(286, 3);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Padding = new Padding(3);
-            checkBox6.Size = new Size(62, 26);
-            checkBox6.TabIndex = 4;
-            checkBox6.Text = "Print";
-            checkBox6.UseVisualStyleBackColor = true;
+            checkBoxSearchHP.AutoSize = true;
+            checkBoxSearchHP.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxSearchHP.Location = new Point(3, 35);
+            checkBoxSearchHP.Name = "checkBoxSearchHP";
+            checkBoxSearchHP.Padding = new Padding(3);
+            checkBoxSearchHP.Size = new Size(171, 26);
+            checkBoxSearchHP.TabIndex = 6;
+            checkBoxSearchHP.Text = "Search in Home Page";
+            checkBoxSearchHP.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // checkBoxHome
             // 
-            checkBox7.AutoSize = true;
-            checkBox7.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox7.Location = new Point(354, 3);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Padding = new Padding(3);
-            checkBox7.Size = new Size(77, 26);
-            checkBox7.TabIndex = 5;
-            checkBox7.Text = "Search";
-            checkBox7.UseVisualStyleBackColor = true;
+            checkBoxHome.AutoSize = true;
+            checkBoxHome.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxHome.Location = new Point(180, 35);
+            checkBoxHome.Name = "checkBoxHome";
+            checkBoxHome.Padding = new Padding(3);
+            checkBoxHome.Size = new Size(69, 26);
+            checkBoxHome.TabIndex = 7;
+            checkBoxHome.Text = "Home";
+            checkBoxHome.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkBoxSalary
             // 
-            checkBox8.AutoSize = true;
-            checkBox8.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox8.Location = new Point(3, 35);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Padding = new Padding(3);
-            checkBox8.Size = new Size(171, 26);
-            checkBox8.TabIndex = 6;
-            checkBox8.Text = "Search in Home Page";
-            checkBox8.UseVisualStyleBackColor = true;
+            checkBoxSalary.AutoSize = true;
+            checkBoxSalary.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxSalary.Location = new Point(255, 35);
+            checkBoxSalary.Name = "checkBoxSalary";
+            checkBoxSalary.Padding = new Padding(3);
+            checkBoxSalary.Size = new Size(134, 26);
+            checkBoxSalary.TabIndex = 8;
+            checkBoxSalary.Text = "Salary Category";
+            checkBoxSalary.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // checkBoxEmployees
             // 
-            checkBox9.AutoSize = true;
-            checkBox9.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox9.Location = new Point(180, 35);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Padding = new Padding(3);
-            checkBox9.Size = new Size(69, 26);
-            checkBox9.TabIndex = 7;
-            checkBox9.Text = "Home";
-            checkBox9.UseVisualStyleBackColor = true;
+            checkBoxEmployees.AutoSize = true;
+            checkBoxEmployees.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxEmployees.Location = new Point(395, 35);
+            checkBoxEmployees.Name = "checkBoxEmployees";
+            checkBoxEmployees.Padding = new Padding(3);
+            checkBoxEmployees.Size = new Size(101, 26);
+            checkBoxEmployees.TabIndex = 9;
+            checkBoxEmployees.Text = "Employees";
+            checkBoxEmployees.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // checkBoxUsers
             // 
-            checkBox10.AutoSize = true;
-            checkBox10.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox10.Location = new Point(255, 35);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Padding = new Padding(3);
-            checkBox10.Size = new Size(134, 26);
-            checkBox10.TabIndex = 8;
-            checkBox10.Text = "Salary Category";
-            checkBox10.UseVisualStyleBackColor = true;
+            checkBoxUsers.AutoSize = true;
+            checkBoxUsers.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxUsers.Location = new Point(3, 67);
+            checkBoxUsers.Name = "checkBoxUsers";
+            checkBoxUsers.Padding = new Padding(3);
+            checkBoxUsers.Size = new Size(66, 26);
+            checkBoxUsers.TabIndex = 10;
+            checkBoxUsers.Text = "Users";
+            checkBoxUsers.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // checkBoxReport
             // 
-            checkBox11.AutoSize = true;
-            checkBox11.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox11.Location = new Point(395, 35);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Padding = new Padding(3);
-            checkBox11.Size = new Size(101, 26);
-            checkBox11.TabIndex = 9;
-            checkBox11.Text = "Employees";
-            checkBox11.UseVisualStyleBackColor = true;
+            checkBoxReport.AutoSize = true;
+            checkBoxReport.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxReport.Location = new Point(75, 67);
+            checkBoxReport.Name = "checkBoxReport";
+            checkBoxReport.Padding = new Padding(3);
+            checkBoxReport.Size = new Size(80, 26);
+            checkBoxReport.TabIndex = 11;
+            checkBoxReport.Text = "Reports";
+            checkBoxReport.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // checkBoxSetting
             // 
-            checkBox12.AutoSize = true;
-            checkBox12.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox12.Location = new Point(3, 67);
-            checkBox12.Name = "checkBox12";
-            checkBox12.Padding = new Padding(3);
-            checkBox12.Size = new Size(66, 26);
-            checkBox12.TabIndex = 10;
-            checkBox12.Text = "Users";
-            checkBox12.UseVisualStyleBackColor = true;
+            checkBoxSetting.AutoSize = true;
+            checkBoxSetting.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxSetting.Location = new Point(161, 67);
+            checkBoxSetting.Name = "checkBoxSetting";
+            checkBoxSetting.Padding = new Padding(3);
+            checkBoxSetting.Size = new Size(83, 26);
+            checkBoxSetting.TabIndex = 12;
+            checkBoxSetting.Text = "Settings";
+            checkBoxSetting.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // checkBoxAbout
             // 
-            checkBox13.AutoSize = true;
-            checkBox13.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox13.Location = new Point(75, 67);
-            checkBox13.Name = "checkBox13";
-            checkBox13.Padding = new Padding(3);
-            checkBox13.Size = new Size(80, 26);
-            checkBox13.TabIndex = 11;
-            checkBox13.Text = "Reports";
-            checkBox13.UseVisualStyleBackColor = true;
+            checkBoxAbout.AutoSize = true;
+            checkBoxAbout.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxAbout.Location = new Point(250, 67);
+            checkBoxAbout.Name = "checkBoxAbout";
+            checkBoxAbout.Padding = new Padding(3);
+            checkBoxAbout.Size = new Size(69, 26);
+            checkBoxAbout.TabIndex = 13;
+            checkBoxAbout.Text = "About";
+            checkBoxAbout.UseVisualStyleBackColor = true;
             // 
-            // checkBox14
+            // checkBoxHelp
             // 
-            checkBox14.AutoSize = true;
-            checkBox14.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox14.Location = new Point(161, 67);
-            checkBox14.Name = "checkBox14";
-            checkBox14.Padding = new Padding(3);
-            checkBox14.Size = new Size(83, 26);
-            checkBox14.TabIndex = 12;
-            checkBox14.Text = "Settings";
-            checkBox14.UseVisualStyleBackColor = true;
+            checkBoxHelp.AutoSize = true;
+            checkBoxHelp.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxHelp.Location = new Point(325, 67);
+            checkBoxHelp.Name = "checkBoxHelp";
+            checkBoxHelp.Padding = new Padding(3);
+            checkBoxHelp.Size = new Size(61, 26);
+            checkBoxHelp.TabIndex = 14;
+            checkBoxHelp.Text = "Help";
+            checkBoxHelp.UseVisualStyleBackColor = true;
             // 
-            // checkBox15
+            // checkBoxRetirees
             // 
-            checkBox15.AutoSize = true;
-            checkBox15.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox15.Location = new Point(250, 67);
-            checkBox15.Name = "checkBox15";
-            checkBox15.Padding = new Padding(3);
-            checkBox15.Size = new Size(69, 26);
-            checkBox15.TabIndex = 13;
-            checkBox15.Text = "About";
-            checkBox15.UseVisualStyleBackColor = true;
+            checkBoxRetirees.AutoSize = true;
+            checkBoxRetirees.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxRetirees.Location = new Point(392, 67);
+            checkBoxRetirees.Name = "checkBoxRetirees";
+            checkBoxRetirees.Padding = new Padding(3);
+            checkBoxRetirees.Size = new Size(84, 26);
+            checkBoxRetirees.TabIndex = 15;
+            checkBoxRetirees.Text = "Retirees";
+            checkBoxRetirees.UseVisualStyleBackColor = true;
             // 
-            // checkBox16
+            // checkBoxRecords
             // 
-            checkBox16.AutoSize = true;
-            checkBox16.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox16.Location = new Point(325, 67);
-            checkBox16.Name = "checkBox16";
-            checkBox16.Padding = new Padding(3);
-            checkBox16.Size = new Size(61, 26);
-            checkBox16.TabIndex = 14;
-            checkBox16.Text = "Help";
-            checkBox16.UseVisualStyleBackColor = true;
+            checkBoxRecords.AutoSize = true;
+            checkBoxRecords.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxRecords.Location = new Point(3, 99);
+            checkBoxRecords.Name = "checkBoxRecords";
+            checkBoxRecords.Padding = new Padding(3);
+            checkBoxRecords.Size = new Size(79, 26);
+            checkBoxRecords.TabIndex = 16;
+            checkBoxRecords.Text = "records";
+            checkBoxRecords.UseVisualStyleBackColor = true;
             // 
             // AddUserForm
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 538);
+            ClientSize = new Size(582, 557);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -527,8 +555,8 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel.ResumeLayout(false);
+            flowLayoutPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -538,7 +566,7 @@
         private Label label2;
         private Label label1;
         private ComboBox comboBoxSecondaryUser;
-        private CheckBox checkBox1;
+        private CheckBox chkSecandryUser;
         private TextBox textBoxPassword;
         private Label label5;
         private Label label6;
@@ -555,23 +583,25 @@
         private Label label14;
         private GroupBox groupBox3;
         private Button buttonSave;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel;
         private ComboBox comboBoxRole;
         private Label label21;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
-        private CheckBox checkBox11;
-        private CheckBox checkBox12;
-        private CheckBox checkBox13;
-        private CheckBox checkBox14;
-        private CheckBox checkBox15;
-        private CheckBox checkBox16;
+        private CheckBox checkBoxAdd;
+        private CheckBox checkBoxDelete;
+        private CheckBox checkBoxEdit;
+        private CheckBox checkBoxExport;
+        private CheckBox checkBoxPrint;
+        private CheckBox checkBoxSearch;
+        private CheckBox checkBoxSearchHP;
+        private CheckBox checkBoxHome;
+        private CheckBox checkBoxSalary;
+        private CheckBox checkBoxEmployees;
+        private CheckBox checkBoxUsers;
+        private CheckBox checkBoxReport;
+        private CheckBox checkBoxSetting;
+        private CheckBox checkBoxAbout;
+        private CheckBox checkBoxHelp;
+        private CheckBox checkBoxRetirees;
+        private CheckBox checkBoxRecords;
     }
 }

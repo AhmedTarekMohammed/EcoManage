@@ -41,6 +41,8 @@
             buttonAbout = new Button();
             panelContainer = new Panel();
             toolTip1 = new ToolTip(components);
+            btnRetires = new Button();
+            btnSystemRecord = new Button();
             flowLayoutPanelNavBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,8 +52,10 @@
             flowLayoutPanelNavBar.Controls.Add(buttonHome);
             flowLayoutPanelNavBar.Controls.Add(buttonSalaryCategory);
             flowLayoutPanelNavBar.Controls.Add(buttonEmployees);
+            flowLayoutPanelNavBar.Controls.Add(btnRetires);
             flowLayoutPanelNavBar.Controls.Add(buttonUsers);
             flowLayoutPanelNavBar.Controls.Add(buttonReport);
+            flowLayoutPanelNavBar.Controls.Add(btnSystemRecord);
             flowLayoutPanelNavBar.Controls.Add(buttonSettings);
             flowLayoutPanelNavBar.Controls.Add(buttonHelp);
             flowLayoutPanelNavBar.Controls.Add(buttonAbout);
@@ -107,7 +111,7 @@
             // 
             buttonUsers.Image = Properties.Resources.Users;
             buttonUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonUsers.Location = new Point(458, 8);
+            buttonUsers.Location = new Point(608, 8);
             buttonUsers.Margin = new Padding(5);
             buttonUsers.Name = "buttonUsers";
             buttonUsers.Size = new Size(140, 50);
@@ -121,7 +125,7 @@
             // 
             buttonReport.Image = Properties.Resources.Business_Report_1;
             buttonReport.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonReport.Location = new Point(608, 8);
+            buttonReport.Location = new Point(758, 8);
             buttonReport.Margin = new Padding(5);
             buttonReport.Name = "buttonReport";
             buttonReport.Size = new Size(140, 50);
@@ -134,7 +138,7 @@
             // 
             buttonSettings.Image = Properties.Resources.Settings;
             buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSettings.Location = new Point(758, 8);
+            buttonSettings.Location = new Point(176, 68);
             buttonSettings.Margin = new Padding(5);
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Size = new Size(140, 50);
@@ -147,7 +151,7 @@
             // 
             buttonHelp.Image = Properties.Resources.Help;
             buttonHelp.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHelp.Location = new Point(8, 68);
+            buttonHelp.Location = new Point(326, 68);
             buttonHelp.Margin = new Padding(5);
             buttonHelp.Name = "buttonHelp";
             buttonHelp.Size = new Size(140, 50);
@@ -160,7 +164,7 @@
             // 
             buttonAbout.Image = Properties.Resources.Info;
             buttonAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAbout.Location = new Point(158, 68);
+            buttonAbout.Location = new Point(476, 68);
             buttonAbout.Margin = new Padding(5);
             buttonAbout.Name = "buttonAbout";
             buttonAbout.Size = new Size(140, 50);
@@ -177,6 +181,32 @@
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(1064, 615);
             panelContainer.TabIndex = 0;
+            // 
+            // btnRetires
+            // 
+            btnRetires.Image = Properties.Resources.Old_Man;
+            btnRetires.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRetires.Location = new Point(458, 8);
+            btnRetires.Margin = new Padding(5);
+            btnRetires.Name = "btnRetires";
+            btnRetires.Size = new Size(140, 50);
+            btnRetires.TabIndex = 8;
+            btnRetires.Text = "     Retirees";
+            toolTip1.SetToolTip(btnRetires, "About System and Latest Updates and versions");
+            btnRetires.UseVisualStyleBackColor = true;
+            // 
+            // btnSystemRecord
+            // 
+            btnSystemRecord.Image = Properties.Resources.Documents_1;
+            btnSystemRecord.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSystemRecord.Location = new Point(8, 68);
+            btnSystemRecord.Margin = new Padding(5);
+            btnSystemRecord.Name = "btnSystemRecord";
+            btnSystemRecord.Size = new Size(158, 50);
+            btnSystemRecord.TabIndex = 9;
+            btnSystemRecord.Text = "     SystemRecord";
+            toolTip1.SetToolTip(btnSystemRecord, "About System and Latest Updates and versions");
+            btnSystemRecord.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -210,5 +240,7 @@
         private Button buttonAbout;
         public Panel panelContainer;
         private ToolTip toolTip1;
+        private Button btnRetires;
+        private Button btnSystemRecord;
     }
 }

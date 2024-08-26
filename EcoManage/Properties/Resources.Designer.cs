@@ -93,6 +93,16 @@ namespace EcoManage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Documents_1 {
+            get {
+                object obj = ResourceManager.GetObject("Documents_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
@@ -107,6 +117,24 @@ namespace EcoManage.Properties {
             get {
                 object obj = ResourceManager.GetObject("Employee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the add button to add data..
+        /// </summary>
+        internal static string EmptyDataStateDescription {
+            get {
+                return ResourceManager.GetString("EmptyDataStateDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Fount Data.
+        /// </summary>
+        internal static string EmptyDataStateTitle {
+            get {
+                return ResourceManager.GetString("EmptyDataStateTitle", resourceCulture);
             }
         }
         
@@ -141,6 +169,16 @@ namespace EcoManage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Logo {
@@ -163,6 +201,26 @@ namespace EcoManage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Old_Man {
+            get {
+                object obj = ResourceManager.GetObject("Old_Man", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reaload {
+            get {
+                object obj = ResourceManager.GetObject("reaload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save {
             get {
                 object obj = ResourceManager.GetObject("Save", resourceCulture);
@@ -177,6 +235,24 @@ namespace EcoManage.Properties {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have a connection problem.. Please refresh the page.
+        /// </summary>
+        internal static string ServerErrorDescription {
+            get {
+                return ResourceManager.GetString("ServerErrorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection error.
+        /// </summary>
+        internal static string ServerErrorTitle {
+            get {
+                return ResourceManager.GetString("ServerErrorTitle", resourceCulture);
             }
         }
         

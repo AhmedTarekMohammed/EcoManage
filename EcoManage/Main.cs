@@ -16,7 +16,18 @@ namespace EcoManage
             //From Setting in the Project so the user can set the screen prefernces for the intitialization 
             //Get and set the window state 
             SetScreenState(Properties.Settings.Default.isMaxScreen);
+            SetRoles();
         }
+        // for test 
+        private void SetRoles() 
+        {
+            Code.Models.LocalUser.UserId = "112";
+            Code.Models.LocalUser.Id = 1;
+            Code.Models.LocalUser.Role = "Admin";   
+
+
+        }
+
 
         private void SetScreenState(bool IsMax)
         {
