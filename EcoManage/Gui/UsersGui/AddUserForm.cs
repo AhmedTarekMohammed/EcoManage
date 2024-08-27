@@ -149,5 +149,35 @@ namespace EcoManage.Gui.UsersGui
 
             }
         }
+
+        private async void SetDataForEdit() 
+        {
+            //Get Edit User Data 
+            var _user = await Task.Run(() => dataHelperForUser.Find(Id));
+            if (_user != null) 
+            { 
+                textBoxFullName.Text = _user.FullName;
+                textBoxPassword.Text = _user.Password;
+                textBoxUserName.Text = _user.UserName;
+                textBoxEmail.Text = _user.Email;    
+                textBoxPhone.Text = _user.Phone;    
+                textBoxAddress.Text = _user.Address;
+                comboBoxRole.SelectedItem = _user.Role;
+                checkBoxSecondayUser.Checked = _user.isSecondaryUser;
+                userCreatedDate = _user.createdDate;
+            }
+
+            //Set Roles
+
+            //Add User Roles
+            foreach (var item in flowLayoutPanelRoles.Controls)
+            {
+                CheckBox checkBox = (CheckBox)item;
+                checkBox.Checked = await Task.Run(() => dataHelperForRoles
+                    .GetAllData()
+                    .Where(X => X.UserId == Id && X.Key == checkBox.Name)
+                    .Select(X => X.Value).FirstOrDefault());
+            }
+        }
     }
 }

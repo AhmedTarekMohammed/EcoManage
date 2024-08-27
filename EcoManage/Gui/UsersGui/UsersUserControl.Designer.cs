@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             buttonAdd = new Button();
             flowLayoutPanelNavBar = new FlowLayoutPanel();
             buttonEdit = new Button();
             buttonDelete = new Button();
-            buttonExport = new Button();
+            buttonExportAll = new Button();
             panel1 = new Panel();
             textBoxSerach = new TextBox();
             buttonSearch = new Button();
@@ -46,6 +46,7 @@
             labelStateDescription = new Label();
             btnReload = new Button();
             toolTip1 = new ToolTip(components);
+            buttonExportDataGridView = new Button();
             flowLayoutPanelNavBar.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -62,6 +63,7 @@
             buttonAdd.Size = new Size(100, 50);
             buttonAdd.TabIndex = 0;
             buttonAdd.Text = "     Add";
+            toolTip1.SetToolTip(buttonAdd, "Add New Data");
             buttonAdd.UseVisualStyleBackColor = false;
             buttonAdd.Click += buttonAdd_Click;
             // 
@@ -71,7 +73,8 @@
             flowLayoutPanelNavBar.Controls.Add(buttonAdd);
             flowLayoutPanelNavBar.Controls.Add(buttonEdit);
             flowLayoutPanelNavBar.Controls.Add(buttonDelete);
-            flowLayoutPanelNavBar.Controls.Add(buttonExport);
+            flowLayoutPanelNavBar.Controls.Add(buttonExportAll);
+            flowLayoutPanelNavBar.Controls.Add(buttonExportDataGridView);
             flowLayoutPanelNavBar.Controls.Add(panel1);
             flowLayoutPanelNavBar.Dock = DockStyle.Top;
             flowLayoutPanelNavBar.Location = new Point(0, 0);
@@ -88,6 +91,7 @@
             buttonEdit.Size = new Size(100, 50);
             buttonEdit.TabIndex = 1;
             buttonEdit.Text = "      Edit";
+            toolTip1.SetToolTip(buttonEdit, "Edit The Current Line ");
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
@@ -101,27 +105,29 @@
             buttonDelete.TabIndex = 2;
             buttonDelete.Text = "   Delete";
             buttonDelete.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonDelete, "Delete Data. You Can Delete Many lines At The Same Time");
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
-            // buttonExport
+            // buttonExportAll
             // 
-            buttonExport.Image = Properties.Resources.Microsoft_Excel;
-            buttonExport.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExport.Location = new Point(321, 3);
-            buttonExport.Name = "buttonExport";
-            buttonExport.Size = new Size(100, 50);
-            buttonExport.TabIndex = 3;
-            buttonExport.Text = "   Export";
-            buttonExport.TextAlign = ContentAlignment.MiddleRight;
-            buttonExport.UseVisualStyleBackColor = true;
-            buttonExport.Click += buttonExport_Click;
+            buttonExportAll.Image = Properties.Resources.Microsoft_Excel;
+            buttonExportAll.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonExportAll.Location = new Point(321, 3);
+            buttonExportAll.Name = "buttonExportAll";
+            buttonExportAll.Size = new Size(100, 50);
+            buttonExportAll.TabIndex = 3;
+            buttonExportAll.Text = "All       ";
+            buttonExportAll.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonExportAll, "Export All Data");
+            buttonExportAll.UseVisualStyleBackColor = true;
+            buttonExportAll.Click += buttonExport_Click;
             // 
             // panel1
             // 
             panel1.Controls.Add(textBoxSerach);
             panel1.Controls.Add(buttonSearch);
-            panel1.Location = new Point(427, 3);
+            panel1.Location = new Point(533, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 50);
             panel1.TabIndex = 4;
@@ -134,8 +140,8 @@
             textBoxSerach.Name = "textBoxSerach";
             textBoxSerach.Size = new Size(268, 50);
             textBoxSerach.TabIndex = 5;
-            textBoxSerach.TextChanged += textBoxSerach_TextChanged;
-            textBoxSerach.KeyPress += textBoxSerach_KeyPress;
+            toolTip1.SetToolTip(textBoxSerach, "Write A Search Message Or Press Search Directly To Show All The Data");
+            textBoxSerach.KeyDown += textBoxSerach_KeyDown;
             // 
             // buttonSearch
             // 
@@ -146,6 +152,7 @@
             buttonSearch.Size = new Size(50, 50);
             buttonSearch.TabIndex = 4;
             buttonSearch.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonSearch, "Write A Search Message Or Press Search Directly To Show All The Data");
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
@@ -153,37 +160,39 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(0, 57);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView1.Size = new Size(1064, 559);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // labelStateTitle
             // 
@@ -238,6 +247,19 @@
             btnReload.UseVisualStyleBackColor = false;
             btnReload.Click += btnReload_Click;
             // 
+            // buttonExportDataGridView
+            // 
+            buttonExportDataGridView.Image = Properties.Resources.Microsoft_Excel;
+            buttonExportDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonExportDataGridView.Location = new Point(427, 3);
+            buttonExportDataGridView.Name = "buttonExportDataGridView";
+            buttonExportDataGridView.Size = new Size(100, 50);
+            buttonExportDataGridView.TabIndex = 5;
+            buttonExportDataGridView.Text = "Grid   ";
+            buttonExportDataGridView.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonExportDataGridView, "Export Data Grid View");
+            buttonExportDataGridView.UseVisualStyleBackColor = true;
+            // 
             // UsersUserControl
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
@@ -264,7 +286,7 @@
         private FlowLayoutPanel flowLayoutPanelNavBar;
         private Button buttonEdit;
         private Button buttonDelete;
-        private Button buttonExport;
+        private Button buttonExportAll;
         private Panel panel1;
         private TextBox textBoxSerach;
         private Button buttonSearch;
@@ -274,5 +296,6 @@
         private Label labelStateDescription;
         private Button btnReload;
         private ToolTip toolTip1;
+        private Button buttonExportDataGridView;
     }
 }

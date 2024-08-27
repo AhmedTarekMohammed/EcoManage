@@ -24,6 +24,7 @@ namespace EcoManage.Gui.UsersGui
         private static Main _main;
         private IDataHelper<Users> dataHelper;
         private List<Users> data;
+        private List<int> IdDeleteList;
         private LoadingForm loading;
 
         public UsersUserControl()
@@ -31,6 +32,7 @@ namespace EcoManage.Gui.UsersGui
             InitializeComponent();
             dataHelper = new UsersEF();
             data = new List<Users>();
+            IdDeleteList = new List<int>();
             // loading = new LoadingForm(_main);
             LoadData();
         }
@@ -57,11 +59,57 @@ namespace EcoManage.Gui.UsersGui
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-
+            Edit();
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private async void buttonDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Check Data If Not Empty
+                if (!dgvHelper.IsEmpty(dataGridView1))
+                {
+                    //Get ID
+                    SetIdDeleteList();
+                    if (IdDeleteList.Count > 0)
+                    {
+                        if (MsgHelper.ShowDeleteDialog())
+                        {
+                            LoadingForm.Instance(_main).Show();
+                            if (await Task.Run(() => dataHelper.IsCanConnect()))
+                            {
+                                //Loop Into Id List
+                                foreach (int Id in IdDeleteList)
+                                {
+                                    await Task.Run(() => dataHelper.Delete(Id));
+
+                                }
+
+                                ToastHelper.ShowDeleteToast();
+                                LoadData();
+
+                            }
+                            else
+                            {
+                                LoadingForm.Instance(_main).Hide();
+                                MsgHelper.ShowServerError();
+                            }
+                            LoadingForm.Instance(_main).Hide();
+                        }
+                    }
+                    else
+                    {
+                        MsgHelper.ShowDeleteSelectRow();
+                    }
+
+                }
+                else
+                {
+                    LoadingForm.Instance(_main).Hide();
+                    MsgHelper.ShowEmptyDataGridView();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
         }
 
@@ -70,25 +118,33 @@ namespace EcoManage.Gui.UsersGui
 
         }
 
+        private void SetIdDeleteList()
+        {
+            IdDeleteList.Clear();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Selected)
+                {
+                    IdDeleteList.Add(Convert.ToInt32(row.Cells[0].Value));
+                }
+
+            }
+        }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
+            Search();
         }
         private void btnReload_Click(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void textBoxSerach_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Edit();
         }
 
-        private void textBoxSerach_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
+        //Methods
         public async void LoadData()
         {
             //show loading
@@ -126,9 +182,47 @@ namespace EcoManage.Gui.UsersGui
             //  loading.Hide();
             LoadingForm.Instance(_main).Hide();
             //show Empty Data 
-       
-        }
 
+        }
+        public async void Search()
+        {
+            //show loading
+            LoadingForm.Instance(_main).Show();
+            if (await Task.Run(() => dataHelper.IsCanConnect()))
+            {
+                string searchItem = textBoxSerach.Text;
+                //start connection
+                if (Code.Models.LocalUser.Role == "Admin")
+                {
+                    //get All Data 
+                    data = await Task.Run(() => dataHelper.SearchAll(searchItem));
+                }
+                else
+                {
+                    //data By user 
+                    data = await Task.Run(() => dataHelper.SearchByUser(LocalUser.UserId, searchItem));
+
+                }
+                // fill data 
+                dataGridView1.DataSource = data.ToList();
+                //Setcolumns();
+                ShowEmptyDataState();
+                data.Clear();
+            }
+            else
+            {
+                // no connection
+                //loading.Hide();
+                LoadingForm.Instance(_main).Hide();
+                ShowServerErrorState();
+                MsgHelper.ShowServerError();
+            }
+
+            //  loading.Hide();
+            LoadingForm.Instance(_main).Hide();
+            //show Empty Data 
+
+        }
         private void ShowEmptyDataState()
         {
             labelStateTitle.Text = Properties.Resources.EmptyDataStateTitle;
@@ -169,12 +263,43 @@ namespace EcoManage.Gui.UsersGui
 
         }
 
+
+
         //private void labelState_Click(object sender, EventArgs e)
         //{
 
         //}
 
-        
+        private void Edit()
+        {
+            //Check Data If Not Empty
+            if (!dgvHelper.IsEmpty(dataGridView1))
+            {
+                //Get ID
+                int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                if (addUserForm == null || addUserForm.IsDisposed)
+                {
+                    addUserForm = new AddUserForm(_main, Id, this);
+                    addUserForm.Show();
+                }
+                else
+                {
+                    addUserForm.Focus();
+                }
+            }
+            else
+            {
+                MsgHelper.ShowEmptyDataGridView();
+            }
+        }
+
+        private void textBoxSerach_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                Search();
+            }
+        }
     }
 
 }
