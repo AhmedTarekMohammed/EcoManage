@@ -40,8 +40,8 @@
             textBoxFullName = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            comboBoxSecondaryUser = new ComboBox();
-            chkSecandryUser = new CheckBox();
+            comboBoxUserId = new ComboBox();
+            checkBoxSecondryUser = new CheckBox();
             groupBox2 = new GroupBox();
             buttonSave = new Button();
             textBoxAddress = new TextBox();
@@ -126,7 +126,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.Red;
-            label5.Location = new Point(89, 206);
+            label5.Location = new Point(84, 206);
             label5.Name = "label5";
             label5.Size = new Size(14, 18);
             label5.TabIndex = 7;
@@ -152,7 +152,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(78, 121);
+            label3.Location = new Point(84, 121);
             label3.Name = "label3";
             label3.Size = new Size(14, 18);
             label3.TabIndex = 4;
@@ -178,7 +178,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(78, 37);
+            label2.Location = new Point(84, 41);
             label2.Name = "label2";
             label2.Size = new Size(14, 18);
             label2.TabIndex = 1;
@@ -195,29 +195,29 @@
             // 
             // comboBoxSecondaryUser
             // 
-            comboBoxSecondaryUser.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSecondaryUser.Enabled = false;
-            comboBoxSecondaryUser.FormattingEnabled = true;
-            comboBoxSecondaryUser.Location = new Point(6, 71);
-            comboBoxSecondaryUser.Name = "comboBoxSecondaryUser";
-            comboBoxSecondaryUser.Size = new Size(250, 26);
-            comboBoxSecondaryUser.TabIndex = 6;
+            comboBoxUserId.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxUserId.Enabled = false;
+            comboBoxUserId.FormattingEnabled = true;
+            comboBoxUserId.Location = new Point(6, 71);
+            comboBoxUserId.Name = "comboBoxSecondryUser";
+            comboBoxUserId.Size = new Size(250, 26);
+            comboBoxUserId.TabIndex = 6;
             // 
             // chkSecandryUser
             // 
-            chkSecandryUser.AutoSize = true;
-            chkSecandryUser.Location = new Point(16, 37);
-            chkSecandryUser.Name = "chkSecandryUser";
-            chkSecandryUser.Size = new Size(154, 22);
-            chkSecandryUser.TabIndex = 5;
-            chkSecandryUser.Text = "Is Secondary User";
-            chkSecandryUser.UseVisualStyleBackColor = true;
-            chkSecandryUser.CheckedChanged += chkSecandryUser_CheckedChanged;
+            checkBoxSecondryUser.AutoSize = true;
+            checkBoxSecondryUser.Location = new Point(16, 37);
+            checkBoxSecondryUser.Name = "checkSecondryUser";
+            checkBoxSecondryUser.Size = new Size(154, 22);
+            checkBoxSecondryUser.TabIndex = 5;
+            checkBoxSecondryUser.Text = "Is Secondary User";
+            checkBoxSecondryUser.UseVisualStyleBackColor = true;
+            checkBoxSecondryUser.CheckedChanged += checkBoxSecondaryUser_CheckedChanged;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(comboBoxSecondaryUser);
-            groupBox2.Controls.Add(chkSecandryUser);
+            groupBox2.Controls.Add(comboBoxUserId);
+            groupBox2.Controls.Add(checkBoxSecondryUser);
             groupBox2.Controls.Add(buttonSave);
             groupBox2.Controls.Add(textBoxAddress);
             groupBox2.Controls.Add(label10);
@@ -243,6 +243,7 @@
             buttonSave.TabIndex = 10;
             buttonSave.Text = "Save";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += buttonSave_Click;
             // 
             // textBoxAddress
             // 
@@ -565,8 +566,8 @@
         private GroupBox groupBox1;
         private Label label2;
         private Label label1;
-        private ComboBox comboBoxSecondaryUser;
-        private CheckBox chkSecandryUser;
+        private ComboBox comboBoxUserId;
+        private CheckBox checkBoxSecondryUser;
         private TextBox textBoxPassword;
         private Label label5;
         private Label label6;

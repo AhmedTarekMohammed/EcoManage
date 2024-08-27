@@ -45,7 +45,7 @@ namespace EcoManage.Gui.UsersGui
         {
             if (addUserForm == null || addUserForm.IsDisposed)
             {
-                addUserForm = new AddUserForm(_main); // Last add to main to be owned by the main Page 
+                addUserForm = new AddUserForm(_main,0,this); // Last add to main to be owned by the main Page 
                 addUserForm.Show();
             }
             else
@@ -57,6 +57,26 @@ namespace EcoManage.Gui.UsersGui
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            //Check Data is not empty
+            //get ID
+            if (!dgvHelper.IsEmpty(dataGridView1))
+            {
+                int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                if (addUserForm == null || addUserForm.IsDisposed)
+                {
+                    addUserForm = new AddUserForm(_main, Id, this); // Last add to main to be owned by the main Page 
+                    addUserForm.Show();
+                }
+                else
+                {
+                    addUserForm.Focus();
+                }
+            }
+            else
+            {
+                MsgHelper.ShowEmptyDataGridView();
+            }
+            
 
         }
 
@@ -109,7 +129,7 @@ namespace EcoManage.Gui.UsersGui
 
                 }
                 // fill data 
-                dataGridView1.DataSource = data;
+                dataGridView1.DataSource = data.ToList();
                 Setcolumns();
                 ShowEmptyDataState();
                 data.Clear();

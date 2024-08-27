@@ -201,6 +201,16 @@ namespace EcoManage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Notification {
+            get {
+                object obj = ResourceManager.GetObject("Notification", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Old_Man {
             get {
                 object obj = ResourceManager.GetObject("Old_Man", resourceCulture);

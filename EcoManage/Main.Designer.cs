@@ -34,15 +34,15 @@
             buttonHome = new Button();
             buttonSalaryCategory = new Button();
             buttonEmployees = new Button();
+            btnRetires = new Button();
             buttonUsers = new Button();
             buttonReport = new Button();
+            btnSystemRecord = new Button();
             buttonSettings = new Button();
             buttonHelp = new Button();
             buttonAbout = new Button();
             panelContainer = new Panel();
             toolTip1 = new ToolTip(components);
-            btnRetires = new Button();
-            btnSystemRecord = new Button();
             flowLayoutPanelNavBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -107,6 +107,19 @@
             toolTip1.SetToolTip(buttonEmployees, "Adminstration of Staff ");
             buttonEmployees.UseVisualStyleBackColor = true;
             // 
+            // btnRetires
+            // 
+            btnRetires.Image = Properties.Resources.Old_Man;
+            btnRetires.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRetires.Location = new Point(458, 8);
+            btnRetires.Margin = new Padding(5);
+            btnRetires.Name = "btnRetires";
+            btnRetires.Size = new Size(140, 50);
+            btnRetires.TabIndex = 8;
+            btnRetires.Text = "     Retirees";
+            toolTip1.SetToolTip(btnRetires, "About System and Latest Updates and versions");
+            btnRetires.UseVisualStyleBackColor = true;
+            // 
             // buttonUsers
             // 
             buttonUsers.Image = Properties.Resources.Users;
@@ -133,6 +146,19 @@
             buttonReport.Text = "   Reports   ";
             toolTip1.SetToolTip(buttonReport, "Creating System  Report sheets");
             buttonReport.UseVisualStyleBackColor = true;
+            // 
+            // btnSystemRecord
+            // 
+            btnSystemRecord.Image = Properties.Resources.Documents_1;
+            btnSystemRecord.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSystemRecord.Location = new Point(8, 68);
+            btnSystemRecord.Margin = new Padding(5);
+            btnSystemRecord.Name = "btnSystemRecord";
+            btnSystemRecord.Size = new Size(158, 50);
+            btnSystemRecord.TabIndex = 9;
+            btnSystemRecord.Text = "     SystemRecord";
+            toolTip1.SetToolTip(btnSystemRecord, "About System and Latest Updates and versions");
+            btnSystemRecord.UseVisualStyleBackColor = true;
             // 
             // buttonSettings
             // 
@@ -175,38 +201,12 @@
             // 
             // panelContainer
             // 
-            panelContainer.BackColor = Color.White;
+            panelContainer.BackColor = SystemColors.Control;
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(0, 0);
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(1064, 615);
             panelContainer.TabIndex = 0;
-            // 
-            // btnRetires
-            // 
-            btnRetires.Image = Properties.Resources.Old_Man;
-            btnRetires.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRetires.Location = new Point(458, 8);
-            btnRetires.Margin = new Padding(5);
-            btnRetires.Name = "btnRetires";
-            btnRetires.Size = new Size(140, 50);
-            btnRetires.TabIndex = 8;
-            btnRetires.Text = "     Retirees";
-            toolTip1.SetToolTip(btnRetires, "About System and Latest Updates and versions");
-            btnRetires.UseVisualStyleBackColor = true;
-            // 
-            // btnSystemRecord
-            // 
-            btnSystemRecord.Image = Properties.Resources.Documents_1;
-            btnSystemRecord.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSystemRecord.Location = new Point(8, 68);
-            btnSystemRecord.Margin = new Padding(5);
-            btnSystemRecord.Name = "btnSystemRecord";
-            btnSystemRecord.Size = new Size(158, 50);
-            btnSystemRecord.TabIndex = 9;
-            btnSystemRecord.Text = "     SystemRecord";
-            toolTip1.SetToolTip(btnSystemRecord, "About System and Latest Updates and versions");
-            btnSystemRecord.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
