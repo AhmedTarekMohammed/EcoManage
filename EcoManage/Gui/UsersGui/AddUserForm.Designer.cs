@@ -41,7 +41,7 @@
             label2 = new Label();
             label1 = new Label();
             comboBoxUserId = new ComboBox();
-            checkBoxSecondryUser = new CheckBox();
+            checkBoxSecondaryUser = new CheckBox();
             groupBox2 = new GroupBox();
             buttonSave = new Button();
             textBoxAddress = new TextBox();
@@ -193,31 +193,31 @@
             label1.TabIndex = 0;
             label1.Text = "Full Name :";
             // 
-            // comboBoxSecondaryUser
+            // comboBoxUserId
             // 
             comboBoxUserId.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxUserId.Enabled = false;
             comboBoxUserId.FormattingEnabled = true;
             comboBoxUserId.Location = new Point(6, 71);
-            comboBoxUserId.Name = "comboBoxSecondryUser";
+            comboBoxUserId.Name = "comboBoxUserId";
             comboBoxUserId.Size = new Size(250, 26);
             comboBoxUserId.TabIndex = 6;
             // 
-            // chkSecandryUser
+            // checkBoxSecondaryUser
             // 
-            checkBoxSecondryUser.AutoSize = true;
-            checkBoxSecondryUser.Location = new Point(16, 37);
-            checkBoxSecondryUser.Name = "checkSecondryUser";
-            checkBoxSecondryUser.Size = new Size(154, 22);
-            checkBoxSecondryUser.TabIndex = 5;
-            checkBoxSecondryUser.Text = "Is Secondary User";
-            checkBoxSecondryUser.UseVisualStyleBackColor = true;
-            checkBoxSecondryUser.CheckedChanged += checkBoxSecondaryUser_CheckedChanged;
+            checkBoxSecondaryUser.AutoSize = true;
+            checkBoxSecondaryUser.Location = new Point(16, 37);
+            checkBoxSecondaryUser.Name = "checkBoxSecondaryUser";
+            checkBoxSecondaryUser.Size = new Size(154, 22);
+            checkBoxSecondaryUser.TabIndex = 5;
+            checkBoxSecondaryUser.Text = "Is Secondary User";
+            checkBoxSecondaryUser.UseVisualStyleBackColor = true;
+            checkBoxSecondaryUser.CheckedChanged += checkBoxSecondaryUser_CheckedChanged;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(comboBoxUserId);
-            groupBox2.Controls.Add(checkBoxSecondryUser);
+            groupBox2.Controls.Add(checkBoxSecondaryUser);
             groupBox2.Controls.Add(buttonSave);
             groupBox2.Controls.Add(textBoxAddress);
             groupBox2.Controls.Add(label10);
@@ -567,7 +567,7 @@
         private Label label2;
         private Label label1;
         private ComboBox comboBoxUserId;
-        private CheckBox checkBoxSecondryUser;
+        private CheckBox checkBoxSecondaryUser;
         private TextBox textBoxPassword;
         private Label label5;
         private Label label6;
