@@ -12,7 +12,7 @@ namespace Eco.Core
         
             public int Id { get; set; }
             public string? UserFullName { get; set; }
-            public string? DevicName { get; set; }
+            public string? DeviceName { get; set; }
             public string? MachinId { get; set; }
             public string? Title { get; set; }
             public string? Description { get; set; }

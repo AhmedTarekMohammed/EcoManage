@@ -1,6 +1,6 @@
-﻿namespace EcoManage.Gui.UsersGui
+﻿namespace EcoManage.Gui.SystemRecordsGui
 {
-    partial class UsersUserControl
+    partial class SystemRecordsUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,8 +35,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             flowLayoutPanelNavBar = new FlowLayoutPanel();
-            buttonAdd = new Button();
-            buttonEdit = new Button();
             buttonDelete = new Button();
             buttonExportAll = new Button();
             buttonExportDataGridView = new Button();
@@ -64,59 +62,29 @@
             // flowLayoutPanelNavBar
             // 
             flowLayoutPanelNavBar.AutoScroll = true;
-            flowLayoutPanelNavBar.Controls.Add(buttonAdd);
-            flowLayoutPanelNavBar.Controls.Add(buttonEdit);
             flowLayoutPanelNavBar.Controls.Add(buttonDelete);
             flowLayoutPanelNavBar.Controls.Add(buttonExportAll);
             flowLayoutPanelNavBar.Controls.Add(buttonExportDataGridView);
             flowLayoutPanelNavBar.Controls.Add(panel1);
             flowLayoutPanelNavBar.Dock = DockStyle.Top;
-            flowLayoutPanelNavBar.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanelNavBar.Location = new Point(0, 0);
             flowLayoutPanelNavBar.Name = "flowLayoutPanelNavBar";
             flowLayoutPanelNavBar.Padding = new Padding(5);
+            flowLayoutPanelNavBar.RightToLeft = RightToLeft.No;
             flowLayoutPanelNavBar.Size = new Size(1062, 67);
             flowLayoutPanelNavBar.TabIndex = 1;
             // 
-            // buttonAdd
-            // 
-            buttonAdd.Image = Properties.Resources.Add;
-            buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(8, 8);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.RightToLeft = RightToLeft.No;
-            buttonAdd.Size = new Size(100, 50);
-            buttonAdd.TabIndex = 0;
-            buttonAdd.Text = "     Add";
-            toolTip1.SetToolTip(buttonAdd, "Add New Data");
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.Image = Properties.Resources.Edit;
-            buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(114, 8);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.RightToLeft = RightToLeft.No;
-            buttonEdit.Size = new Size(100, 50);
-            buttonEdit.TabIndex = 1;
-            buttonEdit.Text = "     Edit";
-            toolTip1.SetToolTip(buttonEdit, "Edit Current Row");
-            buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
-            // 
             // buttonDelete
             // 
-            buttonDelete.Image = Properties.Resources.Delete;
+            buttonDelete.Image = Properties.Resources.icons8_Delete_32px;
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(220, 8);
+            buttonDelete.Location = new Point(8, 8);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.RightToLeft = RightToLeft.No;
             buttonDelete.Size = new Size(100, 50);
             buttonDelete.TabIndex = 2;
-            buttonDelete.Text = "    Delete";
-            toolTip1.SetToolTip(buttonDelete, "Delete Data , You can delete more than one Record");
+            buttonDelete.Text = "  Delete";
+            buttonDelete.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonDelete, "Deleting Data, You Can Delete Many Rows At The Same Time");
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
@@ -124,9 +92,8 @@
             // 
             buttonExportAll.Image = Properties.Resources.icons8_microsoft_excel_2019_32px;
             buttonExportAll.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportAll.Location = new Point(326, 8);
+            buttonExportAll.Location = new Point(114, 8);
             buttonExportAll.Name = "buttonExportAll";
-            buttonExportAll.RightToLeft = RightToLeft.No;
             buttonExportAll.Size = new Size(100, 50);
             buttonExportAll.TabIndex = 3;
             buttonExportAll.Text = "     All";
@@ -138,13 +105,12 @@
             // 
             buttonExportDataGridView.Image = Properties.Resources.icons8_Microsoft_Excel_32px;
             buttonExportDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportDataGridView.Location = new Point(432, 8);
+            buttonExportDataGridView.Location = new Point(220, 8);
             buttonExportDataGridView.Name = "buttonExportDataGridView";
-            buttonExportDataGridView.RightToLeft = RightToLeft.No;
             buttonExportDataGridView.Size = new Size(100, 50);
             buttonExportDataGridView.TabIndex = 5;
             buttonExportDataGridView.Text = "   Grid";
-            toolTip1.SetToolTip(buttonExportDataGridView, "Export DataGrid Table");
+            toolTip1.SetToolTip(buttonExportDataGridView, "Export Data Grid View");
             buttonExportDataGridView.UseVisualStyleBackColor = true;
             buttonExportDataGridView.Click += buttonExportDataGridView_Click;
             // 
@@ -152,7 +118,7 @@
             // 
             panel1.Controls.Add(textBoxSearch);
             panel1.Controls.Add(buttonSearch);
-            panel1.Location = new Point(538, 8);
+            panel1.Location = new Point(326, 8);
             panel1.Name = "panel1";
             panel1.Size = new Size(348, 50);
             panel1.TabIndex = 4;
@@ -167,7 +133,7 @@
             textBoxSearch.Size = new Size(298, 32);
             textBoxSearch.TabIndex = 5;
             textBoxSearch.TextAlign = HorizontalAlignment.Center;
-            toolTip1.SetToolTip(textBoxSearch, "اكتب عبارة بحث  او اضغط بحث بشكل مباشر لعرض كافة البيانات");
+            toolTip1.SetToolTip(textBoxSearch, "Write Your Search Message Or Press Search Directly To Show All The Data");
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
             // buttonSearch
@@ -179,7 +145,7 @@
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(50, 50);
             buttonSearch.TabIndex = 4;
-            toolTip1.SetToolTip(buttonSearch, "Search for record , or click Search to get all data resuts");
+            toolTip1.SetToolTip(buttonSearch, "Write Your Search Message Or Press Search Directly To Show All The Data");
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
@@ -212,6 +178,7 @@
             dataGridView1.Location = new Point(0, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RightToLeft = RightToLeft.No;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
@@ -236,7 +203,7 @@
             labelStateTitle.Name = "labelStateTitle";
             labelStateTitle.Size = new Size(493, 37);
             labelStateTitle.TabIndex = 5;
-            labelStateTitle.Text = "Status Message Title";
+            labelStateTitle.Text = "Status Message ";
             labelStateTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelState
@@ -247,6 +214,7 @@
             panelState.Controls.Add(labelStateTitle);
             panelState.Location = new Point(285, 279);
             panelState.Name = "panelState";
+            panelState.RightToLeft = RightToLeft.No;
             panelState.Size = new Size(493, 125);
             panelState.TabIndex = 5;
             panelState.Visible = false;
@@ -261,25 +229,26 @@
             labelStateDescription.Name = "labelStateDescription";
             labelStateDescription.Size = new Size(493, 37);
             labelStateDescription.TabIndex = 6;
-            labelStateDescription.Text = "Description";
+            labelStateDescription.Text = "Status Description";
             labelStateDescription.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // buttonRefresh
             // 
             buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonRefresh.Image = Properties.Resources.icons8_sync_32px;
-            buttonRefresh.Location = new Point(19, 542);
+            buttonRefresh.Location = new Point(8, 543);
             buttonRefresh.Name = "buttonRefresh";
+            buttonRefresh.RightToLeft = RightToLeft.No;
             buttonRefresh.Size = new Size(50, 50);
             buttonRefresh.TabIndex = 5;
-            toolTip1.SetToolTip(buttonRefresh, "Refresh");
+            toolTip1.SetToolTip(buttonRefresh, "Reload");
             buttonRefresh.UseVisualStyleBackColor = true;
             buttonRefresh.Click += buttonRefresh_Click;
             // 
             // buttonPrev
             // 
-            buttonPrev.Image = Properties.Resources.icons8_chevron_right_32px;
-            buttonPrev.Location = new Point(155, 0);
+            buttonPrev.Image = Properties.Resources.icons8_chevron_left_32px;
+            buttonPrev.Location = new Point(0, 0);
             buttonPrev.Name = "buttonPrev";
             buttonPrev.Size = new Size(50, 50);
             buttonPrev.TabIndex = 6;
@@ -289,12 +258,13 @@
             // 
             // buttonNext
             // 
-            buttonNext.Image = Properties.Resources.icons8_chevron_left_32px;
-            buttonNext.Location = new Point(0, 0);
+            buttonNext.Image = Properties.Resources.icons8_chevron_right_32px;
+            buttonNext.Location = new Point(155, 0);
             buttonNext.Name = "buttonNext";
+            buttonNext.RightToLeft = RightToLeft.No;
             buttonNext.Size = new Size(50, 50);
             buttonNext.TabIndex = 7;
-            toolTip1.SetToolTip(buttonNext, "NextPage");
+            toolTip1.SetToolTip(buttonNext, "Next Page");
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 
@@ -306,6 +276,7 @@
             comboBoxNoOfPages.FormattingEnabled = true;
             comboBoxNoOfPages.Location = new Point(50, 0);
             comboBoxNoOfPages.Name = "comboBoxNoOfPages";
+            comboBoxNoOfPages.RightToLeft = RightToLeft.No;
             comboBoxNoOfPages.Size = new Size(105, 34);
             comboBoxNoOfPages.TabIndex = 8;
             toolTip1.SetToolTip(comboBoxNoOfPages, "Pages Number");
@@ -319,8 +290,9 @@
             panel2.Controls.Add(comboBoxNoOfPages);
             panel2.Controls.Add(buttonNext);
             panel2.Controls.Add(buttonPrev);
-            panel2.Location = new Point(734, 542);
+            panel2.Location = new Point(734, 543);
             panel2.Name = "panel2";
+            panel2.RightToLeft = RightToLeft.No;
             panel2.Size = new Size(315, 50);
             panel2.TabIndex = 6;
             // 
@@ -329,13 +301,13 @@
             labelNofOfItmes.BackColor = Color.White;
             labelNofOfItmes.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             labelNofOfItmes.ForeColor = Color.IndianRed;
-            labelNofOfItmes.Location = new Point(205, 9);
+            labelNofOfItmes.Location = new Point(205, 8);
             labelNofOfItmes.Name = "labelNofOfItmes";
             labelNofOfItmes.Size = new Size(107, 37);
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // UsersUserControl
+            // SystemRecordsUserControl
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -346,7 +318,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "UsersUserControl";
+            Name = "SystemRecordsUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);
@@ -361,8 +333,6 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelNavBar;
-        private Button buttonAdd;
-        private Button buttonEdit;
         private Button buttonDelete;
         private Button buttonExportAll;
         private Panel panel1;

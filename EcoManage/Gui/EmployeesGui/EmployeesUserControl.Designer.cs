@@ -1,6 +1,6 @@
-﻿namespace EcoManage.Gui.UsersGui
+﻿namespace EcoManage.Gui.EmployeesGui
 {
-    partial class UsersUserControl
+    partial class EmployeesUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             flowLayoutPanelNavBar = new FlowLayoutPanel();
             buttonAdd = new Button();
             buttonEdit = new Button();
@@ -88,7 +88,7 @@
             buttonAdd.Size = new Size(100, 50);
             buttonAdd.TabIndex = 0;
             buttonAdd.Text = "     Add";
-            toolTip1.SetToolTip(buttonAdd, "Add New Data");
+            toolTip1.SetToolTip(buttonAdd, "Add new Data");
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += buttonAdd_Click;
             // 
@@ -102,13 +102,13 @@
             buttonEdit.Size = new Size(100, 50);
             buttonEdit.TabIndex = 1;
             buttonEdit.Text = "     Edit";
-            toolTip1.SetToolTip(buttonEdit, "Edit Current Row");
+            toolTip1.SetToolTip(buttonEdit, "Edit Current row");
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonDelete
             // 
-            buttonDelete.Image = Properties.Resources.Delete;
+            buttonDelete.Image = Properties.Resources.icons8_Delete_32px;
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
             buttonDelete.Location = new Point(220, 8);
             buttonDelete.Name = "buttonDelete";
@@ -116,7 +116,7 @@
             buttonDelete.Size = new Size(100, 50);
             buttonDelete.TabIndex = 2;
             buttonDelete.Text = "    Delete";
-            toolTip1.SetToolTip(buttonDelete, "Delete Data , You can delete more than one Record");
+            toolTip1.SetToolTip(buttonDelete, "حذف البيانات. يمكن حذف اكثر من سطر دفعة واحدة");
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
@@ -130,7 +130,7 @@
             buttonExportAll.Size = new Size(100, 50);
             buttonExportAll.TabIndex = 3;
             buttonExportAll.Text = "     All";
-            toolTip1.SetToolTip(buttonExportAll, "Export All Data");
+            toolTip1.SetToolTip(buttonExportAll, "تصدير كامل البيانات");
             buttonExportAll.UseVisualStyleBackColor = true;
             buttonExportAll.Click += buttonExport_Click;
             // 
@@ -144,7 +144,7 @@
             buttonExportDataGridView.Size = new Size(100, 50);
             buttonExportDataGridView.TabIndex = 5;
             buttonExportDataGridView.Text = "   Grid";
-            toolTip1.SetToolTip(buttonExportDataGridView, "Export DataGrid Table");
+            toolTip1.SetToolTip(buttonExportDataGridView, "تصدير شبكة عرض البيانات");
             buttonExportDataGridView.UseVisualStyleBackColor = true;
             buttonExportDataGridView.Click += buttonExportDataGridView_Click;
             // 
@@ -167,7 +167,7 @@
             textBoxSearch.Size = new Size(298, 32);
             textBoxSearch.TabIndex = 5;
             textBoxSearch.TextAlign = HorizontalAlignment.Center;
-            toolTip1.SetToolTip(textBoxSearch, "اكتب عبارة بحث  او اضغط بحث بشكل مباشر لعرض كافة البيانات");
+            toolTip1.SetToolTip(textBoxSearch, "Search here , or click on the Search button ");
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
             // buttonSearch
@@ -179,49 +179,49 @@
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(50, 50);
             buttonSearch.TabIndex = 4;
-            toolTip1.SetToolTip(buttonSearch, "Search for record , or click Search to get all data resuts");
+            toolTip1.SetToolTip(buttonSearch, "write a search statment or click here");
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(0, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView1.Size = new Size(1062, 539);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -236,7 +236,7 @@
             labelStateTitle.Name = "labelStateTitle";
             labelStateTitle.Size = new Size(493, 37);
             labelStateTitle.TabIndex = 5;
-            labelStateTitle.Text = "Status Message Title";
+            labelStateTitle.Text = "Status Message";
             labelStateTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelState
@@ -261,18 +261,18 @@
             labelStateDescription.Name = "labelStateDescription";
             labelStateDescription.Size = new Size(493, 37);
             labelStateDescription.TabIndex = 6;
-            labelStateDescription.Text = "Description";
+            labelStateDescription.Text = "Status Description";
             labelStateDescription.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // buttonRefresh
             // 
             buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonRefresh.Image = Properties.Resources.icons8_sync_32px;
-            buttonRefresh.Location = new Point(19, 542);
+            buttonRefresh.Location = new Point(8, 544);
             buttonRefresh.Name = "buttonRefresh";
             buttonRefresh.Size = new Size(50, 50);
             buttonRefresh.TabIndex = 5;
-            toolTip1.SetToolTip(buttonRefresh, "Refresh");
+            toolTip1.SetToolTip(buttonRefresh, "Refresh/Reload");
             buttonRefresh.UseVisualStyleBackColor = true;
             buttonRefresh.Click += buttonRefresh_Click;
             // 
@@ -294,7 +294,7 @@
             buttonNext.Name = "buttonNext";
             buttonNext.Size = new Size(50, 50);
             buttonNext.TabIndex = 7;
-            toolTip1.SetToolTip(buttonNext, "NextPage");
+            toolTip1.SetToolTip(buttonNext, "Next Page");
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 
@@ -319,7 +319,7 @@
             panel2.Controls.Add(comboBoxNoOfPages);
             panel2.Controls.Add(buttonNext);
             panel2.Controls.Add(buttonPrev);
-            panel2.Location = new Point(734, 542);
+            panel2.Location = new Point(735, 544);
             panel2.Name = "panel2";
             panel2.Size = new Size(315, 50);
             panel2.TabIndex = 6;
@@ -329,13 +329,13 @@
             labelNofOfItmes.BackColor = Color.White;
             labelNofOfItmes.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             labelNofOfItmes.ForeColor = Color.IndianRed;
-            labelNofOfItmes.Location = new Point(205, 9);
+            labelNofOfItmes.Location = new Point(205, 8);
             labelNofOfItmes.Name = "labelNofOfItmes";
             labelNofOfItmes.Size = new Size(107, 37);
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // UsersUserControl
+            // EmployeesUserControl
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -346,7 +346,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "UsersUserControl";
+            Name = "EmployeesUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);

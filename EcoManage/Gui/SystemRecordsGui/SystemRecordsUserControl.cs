@@ -5,6 +5,7 @@ using EcoManage.Code.Models;
 using Eco.Core;
 using Eco.Data.EF;
 using EcoManage.Gui.Loading_Gui;
+using EcoManage.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,50 +17,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EcoManage.Gui.UsersGui
+namespace EcoManage.Gui.SystemRecordsGui
 {
-    public partial class UsersUserControl : UserControl
+    public partial class SystemRecordsUserControl : UserControl
     {
-        private static UsersUserControl? usersUserControl;
-        private AddUserForm addUserForm;
+        private static SystemRecordsUserControl? systemRecordsUserControl;
         private static Main _main;
-        private IDataHelper<Eco.Core.Users> dataHelper;
-        private List<Eco.Core.Users> data;
+        private IDataHelper<Eco.Core.SystemRecords> dataHelper;
+        private List<Eco.Core.SystemRecords> data;
         private List<int> IdDeleteList;
-        public UsersUserControl()
+        public SystemRecordsUserControl()
         {
             InitializeComponent();
-            dataHelper = new UsersEF();
-            data = new List<Eco.Core.Users>();
+            dataHelper = new SystemRecordsEF();
+            data = new List<Eco.Core.SystemRecords>();
             IdDeleteList = new List<int>();
             LoadData();
         }
 
-        public static UsersUserControl Instance(Main main)
+        public static SystemRecordsUserControl Instance(Main main)
         {
             _main = main;
-            return usersUserControl ?? (usersUserControl = new UsersUserControl());
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            if (addUserForm == null || addUserForm.IsDisposed)
-            {
-                addUserForm = new AddUserForm(_main, 0, this);
-                addUserForm.Show();
-            }
-            else
-            {
-                addUserForm.Focus();
-            }
-
-
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            Edit();
-
+            return systemRecordsUserControl ?? (systemRecordsUserControl = new SystemRecordsUserControl());
         }
 
         private async void buttonDelete_Click(object sender, EventArgs e)
@@ -83,8 +62,6 @@ namespace EcoManage.Gui.UsersGui
                                 foreach (int Id in IdDeleteList)
                                 {
                                     await Task.Run(() => dataHelper.Delete(Id));
-                                    SystemRecordHelper.Add("Delete User",
-                   $"User with ID: {Id.ToString()} is Deleted");
                                 }
                                 ToastHelper.ShowDeleteToast();
                                 LoadData();
@@ -175,7 +152,6 @@ namespace EcoManage.Gui.UsersGui
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Edit();
         }
 
         // Methods
@@ -312,48 +288,18 @@ namespace EcoManage.Gui.UsersGui
         {
             dataGridView1.Columns[0].HeaderCell.Value = "IDentifier";
             dataGridView1.Columns[1].HeaderCell.Value = "Full Name";
-            dataGridView1.Columns[2].HeaderCell.Value = "User Name";
-            dataGridView1.Columns[3].HeaderCell.Value = "Password";
+            dataGridView1.Columns[2].HeaderCell.Value = "Device Name";
+            dataGridView1.Columns[3].HeaderCell.Value = "MAC";
             dataGridView1.Columns[4].HeaderCell.Value = "Permission";
-            dataGridView1.Columns[5].HeaderCell.Value = "Is Secondary User";
-            dataGridView1.Columns[6].HeaderCell.Value = "Primary ID";
-            dataGridView1.Columns[7].HeaderCell.Value = "Phone";
-            dataGridView1.Columns[8].HeaderCell.Value = "Email";
-            dataGridView1.Columns[9].HeaderCell.Value = "Address";
-            dataGridView1.Columns[10].HeaderCell.Value = "Created Date";
-            dataGridView1.Columns[11].HeaderCell.Value = "Edited Date";
+            dataGridView1.Columns[5].HeaderCell.Value = "Address";
+            dataGridView1.Columns[6].HeaderCell.Value = "Description ";
+            dataGridView1.Columns[7].HeaderCell.Value = "Record Date";
 
             // Visible of Columns
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
-
 
         }
 
-        private void Edit()
-        {
-            // Check Data if not empty
-            if (!dgvHelper.IsEmpty(dataGridView1))
-            {
-                // Get Id
-                int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                if (addUserForm == null || addUserForm.IsDisposed)
-                {
-                    addUserForm = new AddUserForm(_main, Id, this);
-                    addUserForm.Show();
-                }
-                else
-                {
-                    addUserForm.Focus();
-                }
-            }
-            else
-            {
-                MsgHelper.ShowEmptyDataGridView();
-            }
-        }
-
+      
         private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -441,12 +387,12 @@ namespace EcoManage.Gui.UsersGui
         private void buttonExportDataGridView_Click(object sender, EventArgs e)
         {
             // Get Data
-            var data = (List<Eco.Core.Users>)dataGridView1.DataSource;
+            var data = (List<Eco.Core.SystemRecords>)dataGridView1.DataSource;
             ExportExcel(data);
 
         }
 
-        private void ExportExcel(List<Eco.Core.Users> data)
+        private void ExportExcel(List<Eco.Core.SystemRecords> data)
         {
             // Define Data Table
             DataTable dataTable = new DataTable();
@@ -461,56 +407,42 @@ namespace EcoManage.Gui.UsersGui
             dataTable = arrangedDataTable(dataTable);
 
             // Send to export
-            ExcelHelper.Export(dataTable, "Users");
+            ExcelHelper.Export(dataTable, "SystemRecords");
         }
         private DataTable arrangedDataTable(DataTable dataTable)
         {
             dataTable.Columns["Id"].SetOrdinal(0);
             dataTable.Columns["Id"].ColumnName = "ID";
 
-            dataTable.Columns["FullName"].SetOrdinal(1);
-            dataTable.Columns["FullName"].ColumnName = "Full Name";
+            dataTable.Columns["UserFullName"].SetOrdinal(1);
+            dataTable.Columns["UserFullName"].ColumnName = "Full Name";
 
 
-            dataTable.Columns["UserName"].SetOrdinal(2);
-            dataTable.Columns["UserName"].ColumnName = "User Name";
+            dataTable.Columns["DeviceName"].SetOrdinal(2);
+            dataTable.Columns["DeviceName"].ColumnName = "Device Name";
 
 
-            dataTable.Columns["Password"].SetOrdinal(3);
-            dataTable.Columns["Password"].ColumnName = "Password";
+            dataTable.Columns["MachinId"].SetOrdinal(3);
+            dataTable.Columns["MachinId"].ColumnName = "MAC ";
 
-            dataTable.Columns["Role"].SetOrdinal(4);
-            dataTable.Columns["Role"].ColumnName = "Permission";
+            dataTable.Columns["Title"].SetOrdinal(4);
+            dataTable.Columns["Title"].ColumnName = "Address";
 
-            dataTable.Columns["IsSecondaryUser"].SetOrdinal(5);
-            dataTable.Columns["IsSecondaryUser"].ColumnName = "Is Secondary User";
+            dataTable.Columns["Description"].SetOrdinal(5);
+            dataTable.Columns["Description"].ColumnName = "Record Description ";
 
-            dataTable.Columns["UserId"].SetOrdinal(6);
-            dataTable.Columns["UserId"].ColumnName = "User ID";
-
-            dataTable.Columns["Phone"].SetOrdinal(7);
-            dataTable.Columns["Phone"].ColumnName = "Phone ";
-
-
-            dataTable.Columns["Email"].SetOrdinal(8);
-            dataTable.Columns["Email"].ColumnName = "Email";
-
-
-            dataTable.Columns["Address"].SetOrdinal(9);
-            dataTable.Columns["Address"].ColumnName = "Address ";
-
-
-            dataTable.Columns["CreatedDate"].SetOrdinal(10);
+            dataTable.Columns["CreatedDate"].SetOrdinal(6);
             dataTable.Columns["CreatedDate"].ColumnName = "Created Date";
 
+            dataTable.Columns["UsersId"].SetOrdinal(7);
+            dataTable.Columns["UsersId"].ColumnName = "User ID";
 
-            dataTable.Columns["EditedDate"].SetOrdinal(11);
-            dataTable.Columns["EditedDate"].ColumnName = "Edited Date";
+
+           
 
 
             // Removed columns
-            dataTable.Columns.Remove("Roles");
-            dataTable.Columns.Remove("SystemRecords");
+          
 
             return dataTable;
         }

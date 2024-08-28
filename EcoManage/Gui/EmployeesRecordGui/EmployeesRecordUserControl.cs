@@ -4,7 +4,6 @@ using EcoManage.Code.Helper;
 using EcoManage.Code.Models;
 using Eco.Core;
 using Eco.Data.EF;
-using EcoManage.Gui.Loading_Gui;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,53 +14,30 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EcoManage.Gui.Loading_Gui;
 
-namespace EcoManage.Gui.UsersGui
+
+namespace EcoManage.Gui.EmployeesRecordGui
 {
-    public partial class UsersUserControl : UserControl
+    public partial class EmployeesRecordUserControl : UserControl
     {
-        private static UsersUserControl? usersUserControl;
-        private AddUserForm addUserForm;
         private static Main _main;
-        private IDataHelper<Eco.Core.Users> dataHelper;
-        private List<Eco.Core.Users> data;
+        private IDataHelper<Eco.Core.EmployeesRecords> dataHelper;
+        private List<Eco.Core.EmployeesRecords> data;
         private List<int> IdDeleteList;
-        public UsersUserControl()
+        private  Employees employees;
+
+        public EmployeesRecordUserControl(Employees employees)
         {
             InitializeComponent();
-            dataHelper = new UsersEF();
-            data = new List<Eco.Core.Users>();
+            dataHelper = new EmployeesRecordsRecordsEF();
+            data = new List<Eco.Core.EmployeesRecords>();
             IdDeleteList = new List<int>();
             LoadData();
+            this.employees = employees;
         }
 
-        public static UsersUserControl Instance(Main main)
-        {
-            _main = main;
-            return usersUserControl ?? (usersUserControl = new UsersUserControl());
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            if (addUserForm == null || addUserForm.IsDisposed)
-            {
-                addUserForm = new AddUserForm(_main, 0, this);
-                addUserForm.Show();
-            }
-            else
-            {
-                addUserForm.Focus();
-            }
-
-
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            Edit();
-
-        }
-
+     
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
@@ -83,8 +59,8 @@ namespace EcoManage.Gui.UsersGui
                                 foreach (int Id in IdDeleteList)
                                 {
                                     await Task.Run(() => dataHelper.Delete(Id));
-                                    SystemRecordHelper.Add("Delete User",
-                   $"User with ID: {Id.ToString()} is Deleted");
+                                    SystemRecordHelper.Add("Deleting Raise/Bonus",
+                   $"Current Raise with ID number {Id.ToString()} is Deleted Successfully");
                                 }
                                 ToastHelper.ShowDeleteToast();
                                 LoadData();
@@ -150,12 +126,12 @@ namespace EcoManage.Gui.UsersGui
                 if (LocalUser.Role == "Admin")
                 {
                     // Get All Data
-                    data = await Task.Run(() => dataHelper.GetAllData());
+                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                 }
                 else
                 {
                     // Get Data By User
-                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId));
+                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                 }
                 LoadingForm.Instance(_main).Hide();
 
@@ -175,7 +151,6 @@ namespace EcoManage.Gui.UsersGui
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Edit();
         }
 
         // Methods
@@ -190,12 +165,12 @@ namespace EcoManage.Gui.UsersGui
                 if (LocalUser.Role == "Admin")
                 {
                     // Get All Data
-                    data = await Task.Run(() => dataHelper.GetAllData());
+                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                 }
                 else
                 {
                     // Get Data By User
-                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId));
+                    data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                 }
                 labelNofOfItmes.Text = data.Count.ToString();
                 // Fill DataGridView
@@ -256,7 +231,7 @@ namespace EcoManage.Gui.UsersGui
                 if (LocalUser.Role == "Admin")
                 {
                     // Get All Data
-                    data = await Task.Run(() => dataHelper.SearchAll(searchItem));
+                    data = await Task.Run(() => dataHelper.SearchByUser(LocalUser.UserId, searchItem));
                 }
                 else
                 {
@@ -312,46 +287,27 @@ namespace EcoManage.Gui.UsersGui
         {
             dataGridView1.Columns[0].HeaderCell.Value = "IDentifier";
             dataGridView1.Columns[1].HeaderCell.Value = "Full Name";
-            dataGridView1.Columns[2].HeaderCell.Value = "User Name";
-            dataGridView1.Columns[3].HeaderCell.Value = "Password";
-            dataGridView1.Columns[4].HeaderCell.Value = "Permission";
-            dataGridView1.Columns[5].HeaderCell.Value = "Is Secondary User";
-            dataGridView1.Columns[6].HeaderCell.Value = "Primary ID";
-            dataGridView1.Columns[7].HeaderCell.Value = "Phone";
-            dataGridView1.Columns[8].HeaderCell.Value = "Email";
-            dataGridView1.Columns[9].HeaderCell.Value = "Address";
-            dataGridView1.Columns[10].HeaderCell.Value = "Created Date";
-            dataGridView1.Columns[11].HeaderCell.Value = "Edited Date";
+            dataGridView1.Columns[2].HeaderCell.Value = "Job Title";
+            dataGridView1.Columns[3].HeaderCell.Value = "Employee Status";
+            dataGridView1.Columns[4].Visible = false;
+
+            dataGridView1.Columns[5].HeaderCell.Value = "Current Degree";
+            dataGridView1.Columns[6].HeaderCell.Value = "Current Stage";
+            dataGridView1.Columns[7].HeaderCell.Value = "Current Salary";
+            dataGridView1.Columns[8].HeaderCell.Value = "Current Date";
+
+            dataGridView1.Columns[9].HeaderCell.Value = "Next Degree";
+            dataGridView1.Columns[10].HeaderCell.Value = "Next Stage";
+            dataGridView1.Columns[11].HeaderCell.Value = "Next Salary";
+            dataGridView1.Columns[12].HeaderCell.Value = "Next Date";
 
             // Visible of Columns
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[15].Visible = false;
+            dataGridView1.Columns[16].Visible = false;
+            dataGridView1.Columns[17].Visible = false;
 
-
-        }
-
-        private void Edit()
-        {
-            // Check Data if not empty
-            if (!dgvHelper.IsEmpty(dataGridView1))
-            {
-                // Get Id
-                int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                if (addUserForm == null || addUserForm.IsDisposed)
-                {
-                    addUserForm = new AddUserForm(_main, Id, this);
-                    addUserForm.Show();
-                }
-                else
-                {
-                    addUserForm.Focus();
-                }
-            }
-            else
-            {
-                MsgHelper.ShowEmptyDataGridView();
-            }
         }
 
         private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
@@ -375,12 +331,12 @@ namespace EcoManage.Gui.UsersGui
                     if (LocalUser.Role == "Admin")
                     {
                         // Get All Data
-                        data = await Task.Run(() => dataHelper.GetAllData());
+                        data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                     }
                     else
                     {
                         // Get Data By User
-                        data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId));
+                        data = await Task.Run(() => dataHelper.GetDataByUser(LocalUser.UserId).Where(x=>x.EmployeesId==employees.Id).ToList());
                     }
 
                     // Get and Set Param
@@ -441,12 +397,12 @@ namespace EcoManage.Gui.UsersGui
         private void buttonExportDataGridView_Click(object sender, EventArgs e)
         {
             // Get Data
-            var data = (List<Eco.Core.Users>)dataGridView1.DataSource;
+            var data = (List<Eco.Core.EmployeesRecords>)dataGridView1.DataSource;
             ExportExcel(data);
 
         }
 
-        private void ExportExcel(List<Eco.Core.Users> data)
+        private void ExportExcel(List<Eco.Core.EmployeesRecords> data)
         {
             // Define Data Table
             DataTable dataTable = new DataTable();
@@ -461,56 +417,30 @@ namespace EcoManage.Gui.UsersGui
             dataTable = arrangedDataTable(dataTable);
 
             // Send to export
-            ExcelHelper.Export(dataTable, "Users");
+            ExcelHelper.Export(dataTable, "EmployeesRecords");
         }
         private DataTable arrangedDataTable(DataTable dataTable)
         {
             dataTable.Columns["Id"].SetOrdinal(0);
             dataTable.Columns["Id"].ColumnName = "ID";
 
-            dataTable.Columns["FullName"].SetOrdinal(1);
-            dataTable.Columns["FullName"].ColumnName = "Full Name";
+            dataTable.Columns["Degree"].SetOrdinal(1);
+            dataTable.Columns["Degree"].ColumnName = "Degree";
 
 
-            dataTable.Columns["UserName"].SetOrdinal(2);
-            dataTable.Columns["UserName"].ColumnName = "User Name";
+            dataTable.Columns["Salary"].SetOrdinal(2);
+            dataTable.Columns["Salary"].ColumnName = $"Nominal Salary {Properties.Settings.Default.Currency}";
 
 
-            dataTable.Columns["Password"].SetOrdinal(3);
-            dataTable.Columns["Password"].ColumnName = "Password";
+            dataTable.Columns["BonusYearRate"].SetOrdinal(3);
+            dataTable.Columns["BonusYearRate"].ColumnName = $"Annual Bonus{Properties.Settings.Default.Currency}";
 
-            dataTable.Columns["Role"].SetOrdinal(4);
-            dataTable.Columns["Role"].ColumnName = "Permission";
-
-            dataTable.Columns["IsSecondaryUser"].SetOrdinal(5);
-            dataTable.Columns["IsSecondaryUser"].ColumnName = "Is Secondary User";
-
-            dataTable.Columns["UserId"].SetOrdinal(6);
-            dataTable.Columns["UserId"].ColumnName = "User ID";
-
-            dataTable.Columns["Phone"].SetOrdinal(7);
-            dataTable.Columns["Phone"].ColumnName = "Phone ";
-
-
-            dataTable.Columns["Email"].SetOrdinal(8);
-            dataTable.Columns["Email"].ColumnName = "Email";
-
-
-            dataTable.Columns["Address"].SetOrdinal(9);
-            dataTable.Columns["Address"].ColumnName = "Address ";
-
-
-            dataTable.Columns["CreatedDate"].SetOrdinal(10);
-            dataTable.Columns["CreatedDate"].ColumnName = "Created Date";
-
-
-            dataTable.Columns["EditedDate"].SetOrdinal(11);
-            dataTable.Columns["EditedDate"].ColumnName = "Edited Date";
+            dataTable.Columns["PromotionYear"].SetOrdinal(4);
+            dataTable.Columns["PromotionYear"].ColumnName = "Promotion Years";
 
 
             // Removed columns
-            dataTable.Columns.Remove("Roles");
-            dataTable.Columns.Remove("SystemRecords");
+            dataTable.Columns.Remove("UsersId");
 
             return dataTable;
         }

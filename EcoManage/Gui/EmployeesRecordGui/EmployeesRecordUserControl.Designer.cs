@@ -1,6 +1,6 @@
-﻿namespace EcoManage.Gui.UsersGui
+﻿namespace EcoManage.Gui.EmployeesRecordGui
 {
-    partial class UsersUserControl
+    partial class EmployeesRecordUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,8 +35,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             flowLayoutPanelNavBar = new FlowLayoutPanel();
-            buttonAdd = new Button();
-            buttonEdit = new Button();
             buttonDelete = new Button();
             buttonExportAll = new Button();
             buttonExportDataGridView = new Button();
@@ -64,8 +62,6 @@
             // flowLayoutPanelNavBar
             // 
             flowLayoutPanelNavBar.AutoScroll = true;
-            flowLayoutPanelNavBar.Controls.Add(buttonAdd);
-            flowLayoutPanelNavBar.Controls.Add(buttonEdit);
             flowLayoutPanelNavBar.Controls.Add(buttonDelete);
             flowLayoutPanelNavBar.Controls.Add(buttonExportAll);
             flowLayoutPanelNavBar.Controls.Add(buttonExportDataGridView);
@@ -78,58 +74,31 @@
             flowLayoutPanelNavBar.Size = new Size(1062, 67);
             flowLayoutPanelNavBar.TabIndex = 1;
             // 
-            // buttonAdd
-            // 
-            buttonAdd.Image = Properties.Resources.Add;
-            buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(8, 8);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.RightToLeft = RightToLeft.No;
-            buttonAdd.Size = new Size(100, 50);
-            buttonAdd.TabIndex = 0;
-            buttonAdd.Text = "     Add";
-            toolTip1.SetToolTip(buttonAdd, "Add New Data");
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.Image = Properties.Resources.Edit;
-            buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(114, 8);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.RightToLeft = RightToLeft.No;
-            buttonEdit.Size = new Size(100, 50);
-            buttonEdit.TabIndex = 1;
-            buttonEdit.Text = "     Edit";
-            toolTip1.SetToolTip(buttonEdit, "Edit Current Row");
-            buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
-            // 
             // buttonDelete
             // 
             buttonDelete.Image = Properties.Resources.Delete;
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(220, 8);
+            buttonDelete.Location = new Point(8, 8);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.RightToLeft = RightToLeft.No;
             buttonDelete.Size = new Size(100, 50);
             buttonDelete.TabIndex = 2;
-            buttonDelete.Text = "    Delete";
-            toolTip1.SetToolTip(buttonDelete, "Delete Data , You can delete more than one Record");
+            buttonDelete.Text = " Delete";
+            buttonDelete.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(buttonDelete, "Delete Data, you can delete more than one row ");
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonExportAll
             // 
             buttonExportAll.Image = Properties.Resources.icons8_microsoft_excel_2019_32px;
-            buttonExportAll.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportAll.Location = new Point(326, 8);
+            buttonExportAll.ImageAlign = ContentAlignment.MiddleRight;
+            buttonExportAll.Location = new Point(114, 8);
             buttonExportAll.Name = "buttonExportAll";
-            buttonExportAll.RightToLeft = RightToLeft.No;
             buttonExportAll.Size = new Size(100, 50);
             buttonExportAll.TabIndex = 3;
             buttonExportAll.Text = "     All";
+            buttonExportAll.TextAlign = ContentAlignment.MiddleLeft;
             toolTip1.SetToolTip(buttonExportAll, "Export All Data");
             buttonExportAll.UseVisualStyleBackColor = true;
             buttonExportAll.Click += buttonExport_Click;
@@ -137,14 +106,15 @@
             // buttonExportDataGridView
             // 
             buttonExportDataGridView.Image = Properties.Resources.icons8_Microsoft_Excel_32px;
-            buttonExportDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportDataGridView.Location = new Point(432, 8);
+            buttonExportDataGridView.ImageAlign = ContentAlignment.MiddleRight;
+            buttonExportDataGridView.Location = new Point(220, 8);
             buttonExportDataGridView.Name = "buttonExportDataGridView";
-            buttonExportDataGridView.RightToLeft = RightToLeft.No;
+            buttonExportDataGridView.RightToLeft = RightToLeft.Yes;
             buttonExportDataGridView.Size = new Size(100, 50);
             buttonExportDataGridView.TabIndex = 5;
             buttonExportDataGridView.Text = "   Grid";
-            toolTip1.SetToolTip(buttonExportDataGridView, "Export DataGrid Table");
+            buttonExportDataGridView.TextAlign = ContentAlignment.MiddleLeft;
+            toolTip1.SetToolTip(buttonExportDataGridView, "Export Data Grid");
             buttonExportDataGridView.UseVisualStyleBackColor = true;
             buttonExportDataGridView.Click += buttonExportDataGridView_Click;
             // 
@@ -152,7 +122,7 @@
             // 
             panel1.Controls.Add(textBoxSearch);
             panel1.Controls.Add(buttonSearch);
-            panel1.Location = new Point(538, 8);
+            panel1.Location = new Point(326, 8);
             panel1.Name = "panel1";
             panel1.Size = new Size(348, 50);
             panel1.TabIndex = 4;
@@ -167,7 +137,7 @@
             textBoxSearch.Size = new Size(298, 32);
             textBoxSearch.TabIndex = 5;
             textBoxSearch.TextAlign = HorizontalAlignment.Center;
-            toolTip1.SetToolTip(textBoxSearch, "اكتب عبارة بحث  او اضغط بحث بشكل مباشر لعرض كافة البيانات");
+            toolTip1.SetToolTip(textBoxSearch, "Write a Search Statment or hit the serch button to get all the data");
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
             // buttonSearch
@@ -179,7 +149,7 @@
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(50, 50);
             buttonSearch.TabIndex = 4;
-            toolTip1.SetToolTip(buttonSearch, "Search for record , or click Search to get all data resuts");
+            toolTip1.SetToolTip(buttonSearch, "Write a Search Statment or hit the serch button to get all the data");
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
@@ -236,7 +206,7 @@
             labelStateTitle.Name = "labelStateTitle";
             labelStateTitle.Size = new Size(493, 37);
             labelStateTitle.TabIndex = 5;
-            labelStateTitle.Text = "Status Message Title";
+            labelStateTitle.Text = "Status Message";
             labelStateTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelState
@@ -259,16 +229,17 @@
             labelStateDescription.ForeColor = Color.LightGray;
             labelStateDescription.Location = new Point(0, 37);
             labelStateDescription.Name = "labelStateDescription";
+            labelStateDescription.RightToLeft = RightToLeft.No;
             labelStateDescription.Size = new Size(493, 37);
             labelStateDescription.TabIndex = 6;
-            labelStateDescription.Text = "Description";
+            labelStateDescription.Text = "State Description";
             labelStateDescription.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // buttonRefresh
             // 
             buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonRefresh.Image = Properties.Resources.icons8_sync_32px;
-            buttonRefresh.Location = new Point(19, 542);
+            buttonRefresh.Location = new Point(8, 541);
             buttonRefresh.Name = "buttonRefresh";
             buttonRefresh.Size = new Size(50, 50);
             buttonRefresh.TabIndex = 5;
@@ -279,7 +250,7 @@
             // buttonPrev
             // 
             buttonPrev.Image = Properties.Resources.icons8_chevron_right_32px;
-            buttonPrev.Location = new Point(155, 0);
+            buttonPrev.Location = new Point(167, 0);
             buttonPrev.Name = "buttonPrev";
             buttonPrev.Size = new Size(50, 50);
             buttonPrev.TabIndex = 6;
@@ -294,7 +265,7 @@
             buttonNext.Name = "buttonNext";
             buttonNext.Size = new Size(50, 50);
             buttonNext.TabIndex = 7;
-            toolTip1.SetToolTip(buttonNext, "NextPage");
+            toolTip1.SetToolTip(buttonNext, "Next Page");
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 
@@ -304,11 +275,11 @@
             comboBoxNoOfPages.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxNoOfPages.Font = new Font("Microsoft Sans Serif", 13F);
             comboBoxNoOfPages.FormattingEnabled = true;
-            comboBoxNoOfPages.Location = new Point(50, 0);
+            comboBoxNoOfPages.Location = new Point(59, 9);
             comboBoxNoOfPages.Name = "comboBoxNoOfPages";
             comboBoxNoOfPages.Size = new Size(105, 34);
             comboBoxNoOfPages.TabIndex = 8;
-            toolTip1.SetToolTip(comboBoxNoOfPages, "Pages Number");
+            toolTip1.SetToolTip(comboBoxNoOfPages, "Number of Pages");
             comboBoxNoOfPages.SelectedIndexChanged += comboBoxNoOfPages_SelectedIndexChanged;
             // 
             // panel2
@@ -316,10 +287,10 @@
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(labelNofOfItmes);
-            panel2.Controls.Add(comboBoxNoOfPages);
             panel2.Controls.Add(buttonNext);
+            panel2.Controls.Add(comboBoxNoOfPages);
             panel2.Controls.Add(buttonPrev);
-            panel2.Location = new Point(734, 542);
+            panel2.Location = new Point(732, 541);
             panel2.Name = "panel2";
             panel2.Size = new Size(315, 50);
             panel2.TabIndex = 6;
@@ -329,13 +300,13 @@
             labelNofOfItmes.BackColor = Color.White;
             labelNofOfItmes.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             labelNofOfItmes.ForeColor = Color.IndianRed;
-            labelNofOfItmes.Location = new Point(205, 9);
+            labelNofOfItmes.Location = new Point(223, 6);
             labelNofOfItmes.Name = "labelNofOfItmes";
-            labelNofOfItmes.Size = new Size(107, 37);
+            labelNofOfItmes.Size = new Size(89, 37);
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // UsersUserControl
+            // EmployeesRecordUserControl
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -346,7 +317,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "UsersUserControl";
+            Name = "EmployeesRecordUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);
@@ -361,8 +332,6 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelNavBar;
-        private Button buttonAdd;
-        private Button buttonEdit;
         private Button buttonDelete;
         private Button buttonExportAll;
         private Panel panel1;

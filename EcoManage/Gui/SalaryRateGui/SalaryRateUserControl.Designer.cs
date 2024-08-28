@@ -1,6 +1,6 @@
-﻿namespace EcoManage.Gui.UsersGui
+﻿namespace EcoManage.Gui.SalaryRateGui
 {
-    partial class UsersUserControl
+    partial class SalaryRateUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -88,7 +88,7 @@
             buttonAdd.Size = new Size(100, 50);
             buttonAdd.TabIndex = 0;
             buttonAdd.Text = "     Add";
-            toolTip1.SetToolTip(buttonAdd, "Add New Data");
+            toolTip1.SetToolTip(buttonAdd, "Adding New Data");
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += buttonAdd_Click;
             // 
@@ -102,13 +102,13 @@
             buttonEdit.Size = new Size(100, 50);
             buttonEdit.TabIndex = 1;
             buttonEdit.Text = "     Edit";
-            toolTip1.SetToolTip(buttonEdit, "Edit Current Row");
+            toolTip1.SetToolTip(buttonEdit, "Edit Current Line");
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonDelete
             // 
-            buttonDelete.Image = Properties.Resources.Delete;
+            buttonDelete.Image = Properties.Resources.icons8_Delete_32px;
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
             buttonDelete.Location = new Point(220, 8);
             buttonDelete.Name = "buttonDelete";
@@ -116,7 +116,7 @@
             buttonDelete.Size = new Size(100, 50);
             buttonDelete.TabIndex = 2;
             buttonDelete.Text = "    Delete";
-            toolTip1.SetToolTip(buttonDelete, "Delete Data , You can delete more than one Record");
+            toolTip1.SetToolTip(buttonDelete, "Delete Data, You Can delete more than one line");
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
@@ -130,7 +130,7 @@
             buttonExportAll.Size = new Size(100, 50);
             buttonExportAll.TabIndex = 3;
             buttonExportAll.Text = "     All";
-            toolTip1.SetToolTip(buttonExportAll, "Export All Data");
+            toolTip1.SetToolTip(buttonExportAll, "Export all data");
             buttonExportAll.UseVisualStyleBackColor = true;
             buttonExportAll.Click += buttonExport_Click;
             // 
@@ -144,7 +144,7 @@
             buttonExportDataGridView.Size = new Size(100, 50);
             buttonExportDataGridView.TabIndex = 5;
             buttonExportDataGridView.Text = "   Grid";
-            toolTip1.SetToolTip(buttonExportDataGridView, "Export DataGrid Table");
+            toolTip1.SetToolTip(buttonExportDataGridView, "Export Show Data network");
             buttonExportDataGridView.UseVisualStyleBackColor = true;
             buttonExportDataGridView.Click += buttonExportDataGridView_Click;
             // 
@@ -167,7 +167,7 @@
             textBoxSearch.Size = new Size(298, 32);
             textBoxSearch.TabIndex = 5;
             textBoxSearch.TextAlign = HorizontalAlignment.Center;
-            toolTip1.SetToolTip(textBoxSearch, "اكتب عبارة بحث  او اضغط بحث بشكل مباشر لعرض كافة البيانات");
+            toolTip1.SetToolTip(textBoxSearch, "Type search or press search directly to display all data");
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
             // buttonSearch
@@ -179,7 +179,7 @@
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(50, 50);
             buttonSearch.TabIndex = 4;
-            toolTip1.SetToolTip(buttonSearch, "Search for record , or click Search to get all data resuts");
+            toolTip1.SetToolTip(buttonSearch, "Type search or press search directly to display all data");
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
@@ -236,7 +236,7 @@
             labelStateTitle.Name = "labelStateTitle";
             labelStateTitle.Size = new Size(493, 37);
             labelStateTitle.TabIndex = 5;
-            labelStateTitle.Text = "Status Message Title";
+            labelStateTitle.Text = "Status message ";
             labelStateTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelState
@@ -261,18 +261,18 @@
             labelStateDescription.Name = "labelStateDescription";
             labelStateDescription.Size = new Size(493, 37);
             labelStateDescription.TabIndex = 6;
-            labelStateDescription.Text = "Description";
+            labelStateDescription.Text = "Status description";
             labelStateDescription.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // buttonRefresh
             // 
-            buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonRefresh.Image = Properties.Resources.icons8_sync_32px;
-            buttonRefresh.Location = new Point(19, 542);
+            buttonRefresh.Location = new Point(8, 544);
             buttonRefresh.Name = "buttonRefresh";
             buttonRefresh.Size = new Size(50, 50);
             buttonRefresh.TabIndex = 5;
-            toolTip1.SetToolTip(buttonRefresh, "Refresh");
+            toolTip1.SetToolTip(buttonRefresh, "Reloading");
             buttonRefresh.UseVisualStyleBackColor = true;
             buttonRefresh.Click += buttonRefresh_Click;
             // 
@@ -283,7 +283,7 @@
             buttonPrev.Name = "buttonPrev";
             buttonPrev.Size = new Size(50, 50);
             buttonPrev.TabIndex = 6;
-            toolTip1.SetToolTip(buttonPrev, "Previous Page");
+            toolTip1.SetToolTip(buttonPrev, "Previous page");
             buttonPrev.UseVisualStyleBackColor = true;
             buttonPrev.Click += buttonPrev_Click;
             // 
@@ -294,7 +294,7 @@
             buttonNext.Name = "buttonNext";
             buttonNext.Size = new Size(50, 50);
             buttonNext.TabIndex = 7;
-            toolTip1.SetToolTip(buttonNext, "NextPage");
+            toolTip1.SetToolTip(buttonNext, "Next page");
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 
@@ -313,13 +313,13 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(labelNofOfItmes);
             panel2.Controls.Add(comboBoxNoOfPages);
             panel2.Controls.Add(buttonNext);
             panel2.Controls.Add(buttonPrev);
-            panel2.Location = new Point(734, 542);
+            panel2.Location = new Point(733, 544);
             panel2.Name = "panel2";
             panel2.Size = new Size(315, 50);
             panel2.TabIndex = 6;
@@ -329,13 +329,13 @@
             labelNofOfItmes.BackColor = Color.White;
             labelNofOfItmes.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             labelNofOfItmes.ForeColor = Color.IndianRed;
-            labelNofOfItmes.Location = new Point(205, 9);
+            labelNofOfItmes.Location = new Point(205, 8);
             labelNofOfItmes.Name = "labelNofOfItmes";
             labelNofOfItmes.Size = new Size(107, 37);
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // UsersUserControl
+            // SalaryRateUserControl
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -346,7 +346,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "UsersUserControl";
+            Name = "SalaryRateUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);

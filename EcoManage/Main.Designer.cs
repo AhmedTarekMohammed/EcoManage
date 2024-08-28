@@ -89,7 +89,7 @@
             buttonSalaryCategory.Name = "buttonSalaryCategory";
             buttonSalaryCategory.Size = new Size(140, 50);
             buttonSalaryCategory.TabIndex = 1;
-            buttonSalaryCategory.Text = "   Salary Categ.";
+            buttonSalaryCategory.Text = "Salary Cat.";
             buttonSalaryCategory.TextAlign = ContentAlignment.MiddleRight;
             toolTip1.SetToolTip(buttonSalaryCategory, "Managing Wages or Salaries Categories");
             buttonSalaryCategory.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             buttonEmployees.Name = "buttonEmployees";
             buttonEmployees.Size = new Size(140, 50);
             buttonEmployees.TabIndex = 2;
-            buttonEmployees.Text = "       Employees";
+            buttonEmployees.Text = "   Employees";
             toolTip1.SetToolTip(buttonEmployees, "Adminstration of Staff ");
             buttonEmployees.UseVisualStyleBackColor = true;
             // 
@@ -156,7 +156,8 @@
             btnSystemRecord.Name = "btnSystemRecord";
             btnSystemRecord.Size = new Size(158, 50);
             btnSystemRecord.TabIndex = 9;
-            btnSystemRecord.Text = "     SystemRecord";
+            btnSystemRecord.Text = "SystemRecord";
+            btnSystemRecord.TextAlign = ContentAlignment.MiddleRight;
             toolTip1.SetToolTip(btnSystemRecord, "About System and Latest Updates and versions");
             btnSystemRecord.UseVisualStyleBackColor = true;
             // 
@@ -169,7 +170,7 @@
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Size = new Size(140, 50);
             buttonSettings.TabIndex = 5;
-            buttonSettings.Text = " Settings  ";
+            buttonSettings.Text = "   Settings ";
             toolTip1.SetToolTip(buttonSettings, "General Settings");
             buttonSettings.UseVisualStyleBackColor = true;
             // 
@@ -182,7 +183,7 @@
             buttonHelp.Name = "buttonHelp";
             buttonHelp.Size = new Size(140, 50);
             buttonHelp.TabIndex = 6;
-            buttonHelp.Text = "    Help";
+            buttonHelp.Text = "   Help";
             toolTip1.SetToolTip(buttonHelp, "See Documentation");
             buttonHelp.UseVisualStyleBackColor = true;
             // 
@@ -195,7 +196,7 @@
             buttonAbout.Name = "buttonAbout";
             buttonAbout.Size = new Size(140, 50);
             buttonAbout.TabIndex = 7;
-            buttonAbout.Text = "About";
+            buttonAbout.Text = "  About";
             toolTip1.SetToolTip(buttonAbout, "About System and Latest Updates and versions");
             buttonAbout.UseVisualStyleBackColor = true;
             // 
@@ -210,7 +211,7 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 681);
             Controls.Add(panelContainer);

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace EcoManage.Code.Helper
 {
@@ -25,15 +27,15 @@ namespace EcoManage.Code.Helper
                 // Export
                 try
                 {
-                    //using (XLWorkbook xLWorkbook = new XLWorkbook())
-                    //{
-                    //    xLWorkbook.AddWorksheet(dataTable, sheetName);
-                    //    using (MemoryStream ma = new MemoryStream())
-                    //    {
-                    //        xLWorkbook.SaveAs(ma);
-                    //        File.WriteAllBytes(saveFileDialog.FileName, ma.ToArray());
-                    //    }
-                    //}
+                    using (XLWorkbook xLWorkbook = new XLWorkbook())
+                    {
+                        xLWorkbook.AddWorksheet(dataTable, sheetName);
+                        using (MemoryStream ma = new MemoryStream())
+                        {
+                            xLWorkbook.SaveAs(ma);
+                            File.WriteAllBytes(saveFileDialog.FileName, ma.ToArray());
+                        }
+                    }
 
 
                 }

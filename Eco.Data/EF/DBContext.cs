@@ -18,7 +18,7 @@ namespace Eco.Data.EF
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string conString = @"Server=./MSSQLSERVER;Database=EcoManageDB;Encrypt=false;Trusted_Connection=True;";
+                string conString = @"Server=./MSSQLSERVER;Database=EcoManageDB;Encrypt=false;Trusted_Connection=True;Integrated Security=true;";
                 optionsBuilder.UseSqlServer(conString);
             }
         }
