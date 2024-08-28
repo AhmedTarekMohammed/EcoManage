@@ -1,1 +1,1 @@
-still no UI ready , No LOgins , i need you guys to start immediatly 
+We Need to start Trials on the DB asap
